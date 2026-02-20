@@ -1,2 +1,33 @@
-.header__container 
-    
+.header__container
+  .navbar
+    .buttonsLeft
+      img(src="images/secura-insurance_logo.png", alt="logo")
+      a(href="#inicio") Inicio
+      a(href="#renovaciones") Próximas renovaciones
+
+    section.rightNavButtons
+
+      // Dropdown Perfil
+      .dropdown
+        button.dropdown-toggle(type="button")
+          span.icon-user
+          p Mi perfil
+          span.icon-arrow-dropdown
+        ul.dropdown-menu
+          li: a(href="#datos") Mis datos personales
+          li: a(href="#password") Mi contraseña
+          li: a(href="#contacto") Contacto
+          li: a(href="#logout") Cerrar sesión
+
+      // Dropdown Idioma
+      .dropdown
+        button.dropdown-toggle(type="button")
+          span.icon-globe
+          p Español
+          span.icon-arrow-dropdown
+        ul.dropdown-menu
+          li: a(href="#es") Español
+          li: a(href="#en") English
+          li: a(href="#cat") Català
+          li: a(href="#gal") Galego
+          li: a(href="#eus") Euskera

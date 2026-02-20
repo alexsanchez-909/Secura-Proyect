@@ -1,0 +1,8 @@
+@use "helpers/variables";
+
+.navbar{
+    background-color: variables.$light; 
+    display: flex; 
+    flex-direction: row; /* fuerza la alineación horizontal */ 
+    align-items: center; /* opcional: centra verticalmente */
+}

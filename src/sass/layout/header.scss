@@ -1,0 +1,62 @@
+@use 'helpers/variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 88px 16px 88px;
+}
+
+.buttonsLeft{
+  display: flex;               
+  align-items: center;          
+  gap: 32px; 
+
+  img {
+    height: 64px;
+    width: auto;
+  } 
+
+  .link {
+    font-family: variables.$font-family;
+    font-weight: bold;
+    font-size: 16px;
+    color: variables.$gray-100;
+    text-decoration: none;
+  }           
+}
+
+
+
+
+
+.rightNavButtons{  
+  display: flex;
+  align-items: center;
+  gap: 24px; 
+  height: 40px;
+  
+  button{
+    display: flex;        
+    align-items: center;  
+    gap: 0.5rem;           
+    text-decoration: none;    
+    background: none;
+    border: none;
+  }   
+  .user, .globe {
+    font-size: 24px;      
+  }
+  .arrow-down{
+    padding-left: 8px;
+    font-size: 6px;
+  }
+  p {
+    font-family: variables.$font-family;
+    font-weight: 400;
+    font-size: 16px;
+    color: variables.$gray-100;
+  }
+}
+
+
