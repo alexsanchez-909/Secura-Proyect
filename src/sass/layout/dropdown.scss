@@ -1,0 +1,22 @@
+.dropdown {
+  position: relative; // CLAVE para que el dropdown se coloque debajo del botón
+}
+
+.dropdown-profile {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: none; // oculto por defecto
+  z-index: 20;
+
+  &.active {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

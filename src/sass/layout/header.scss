@@ -1,5 +1,5 @@
-@use 'helpers/variables';
-@use 'helpers/mixins';
+@use 'helpers/variables' as *;
+@use '../helpers/mixins' as *;
 .navbar {
   display: flex;
   align-items: center;
@@ -18,17 +18,25 @@
   } 
 
   a {
-    font-family: variables.$font-family;
+    font-family: $font-family;
     font-weight: bold;
-    font-size: variables.$font-size-small;
-    color: variables.$gray-100;
+    font-size: $font-size-small;
+    color: $gray-100;
     text-decoration: none;
-  }           
+  }
+  
+  @include mobile(){
+    @media(max-width: $breakpoint-mobile){
+      a{
+        display: none;
+      }
+    }
+  }
 }
 
 
 .icon-color{
-  color: variables.$primary;
+  color: $primary;
 }
 
 
@@ -47,26 +55,27 @@
     border: none;
   }   
   .user, .globe {
-    font-size: variables.$font-size-medium;      
+    font-size: $font-size-medium;      
   }
   .arrow-down{
     padding-left: 8px;
     font-size: 6px;
   }
-  .buttton-text{
-    @include mixins.font-styles(variables.$font-family, 400, variables.$font-size-small, variables.$gray-100);
+  .button-text{
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
   }
 
   .icon-burger_menu{
     display: none;
   }
 
-  @include mixins.mobile() {
+  @include mobile() {
     .button-text, .arrow-down, .globe{
       display: none;
     }
     .icon-burger_menu{
       display: block;
+      font-size: $font-size-medium;
     }
   }
 }
