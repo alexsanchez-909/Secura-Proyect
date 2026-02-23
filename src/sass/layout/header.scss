@@ -1,5 +1,5 @@
 @use 'helpers/variables';
-
+@use 'helpers/mixins';
 .navbar {
   display: flex;
   align-items: center;
@@ -7,7 +7,7 @@
   padding: 16px 88px 16px 88px;
 }
 
-.buttonsLeft{
+.left-side{
   display: flex;               
   align-items: center;          
   gap: 32px; 
@@ -17,20 +17,22 @@
     width: auto;
   } 
 
-  .link {
+  a {
     font-family: variables.$font-family;
     font-weight: bold;
-    font-size: 16px;
+    font-size: variables.$font-size-small;
     color: variables.$gray-100;
     text-decoration: none;
   }           
 }
 
 
+.icon-color{
+  color: variables.$primary;
+}
 
 
-
-.rightNavButtons{  
+.right-side{  
   display: flex;
   align-items: center;
   gap: 24px; 
@@ -45,17 +47,27 @@
     border: none;
   }   
   .user, .globe {
-    font-size: 24px;      
+    font-size: variables.$font-size-medium;      
   }
   .arrow-down{
     padding-left: 8px;
     font-size: 6px;
   }
-  p {
-    font-family: variables.$font-family;
-    font-weight: 400;
-    font-size: 16px;
-    color: variables.$gray-100;
+  .buttton-text{
+    @include mixins.font-styles(variables.$font-family, 400, variables.$font-size-small, variables.$gray-100);
+  }
+
+  .icon-globe{
+    display: none;
+  }
+
+  @include mixins.mobile() {
+    .button-text, .arrow-down, .globe{
+      display: none;
+    }
+    .icon-globe{
+      display: block;
+    }
   }
 }
 

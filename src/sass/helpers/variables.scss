@@ -33,14 +33,10 @@ $font-size-extrasmall: 10px;
 
 
 /* Breakpoints */
-$breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
+$breakpoint-mobile: 30rem;
+$breakpoint-tablet: 40rem;
+$breakpoint-desktop: 64rem;
+$breakpoint-large-desktop: 75rem;
 
 
 
