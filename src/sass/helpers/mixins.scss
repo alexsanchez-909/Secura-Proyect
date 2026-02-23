@@ -16,25 +16,25 @@
 }
 
 @mixin mobile(){
-    @media(max-width: variables.$breakpoints-mobile) {
+    @media(max-width: variables.$breakpoint-mobile) {
         @content;
     }
 }
 
 @mixin tablet(){
-    @media(max-width: variables.$breakpoints-tablet) {
+    @media(max-width: variables.$breakpoint-tablet) {
         @content;
     }
 }
 
 @mixin desktop(){
-    @media(max-width: variables.$breakpoints-desktop) {
+    @media(max-width: variables.$breakpoint-desktop) {
         @content;
     }
 }
 
 @mixin large-desktop(){
-    @media(max-width: variables.$breakpoints-large-desktop) {
+    @media(max-width: variables.$breakpoint-large-desktop) {
         @content;
     }
 }

@@ -57,7 +57,7 @@
     @include mixins.font-styles(variables.$font-family, 400, variables.$font-size-small, variables.$gray-100);
   }
 
-  .icon-globe{
+  .icon-burger_menu{
     display: none;
   }
 
@@ -65,7 +65,7 @@
     .button-text, .arrow-down, .globe{
       display: none;
     }
-    .icon-globe{
+    .icon-burger_menu{
       display: block;
     }
   }
