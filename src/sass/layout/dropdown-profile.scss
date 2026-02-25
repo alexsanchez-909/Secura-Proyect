@@ -4,13 +4,12 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: 200%;
   right: 0;
   background-color: $light;
-  border: 1px solid $gray-25;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba($gray-100, 0.1);
-  width: 340px;
+  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
+  width: 375px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
@@ -46,6 +45,7 @@
     gap: 12px;
     border-left: 3px solid transparent;
     background: none;
+    border-top: 2px solid $gray-25;
 
     &:hover {
       border-left-color: $primary;
@@ -61,5 +61,35 @@
       color: inherit;
       flex: 1;
     }
+    .icon-user,
+    .icon-lock,
+    .icon-phone,
+    .icon-power-off{
+      font-size: $font-size-medium;
+    }
   }
+  @include mobile() {
+    position: fixed;
+    top: 80px; // Altura del header, ajusta según tu header real
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: $light;
+    height: calc(100vh - 80px); // Resta la altura del header
+    max-width: 100vw;
+    max-height: calc(100vh - 80px);
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 8px 32px rgba($gray-100, 0.15);
+    border-top: 1px solid $gray-25;
+    .dropdown-header {
+    h1{
+      @include font-styles($font-family, bold, $font-size-small, $gray-100);
+      margin: 24px 234px 22px 24px;
+    }
+    p {
+      @include font-styles($font-family, 400, $font-size-small, $gray-100);
+      margin: 0 24px 24px 24px;
+    }
+  }
+}
 }

@@ -82,7 +82,7 @@
     }
 
     // El icono de hamburguesa que tienes en tu Pug
-    .icon-burguer_menu {
+    .icon-burger_menu {
       display: none; // Oculto en escritorio
       
       @include mobile() {
