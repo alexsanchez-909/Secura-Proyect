@@ -1,83 +1,95 @@
 @use 'helpers/variables' as *;
 @use '../helpers/mixins' as *;
+
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 88px 16px 88px;
-}
+  justify-content: space-between; // Esto empuja left y right a los extremos
+  padding: 16px 88px;
+  background-color: $light;
+  width: 100%;
+  box-sizing: border-box;
 
-.left-side{
-  display: flex;               
-  align-items: center;          
-  gap: 32px; 
-
-  img {
-    height: 64px;
-    width: auto;
-  } 
-
-  a {
-    font-family: $font-family;
-    font-weight: bold;
-    font-size: $font-size-small;
-    color: $gray-100;
-    text-decoration: none;
+  @include mobile() {
+    padding: 16px 24px; // Reducimos el padding para ganar espacio en móvil
   }
-  
-  @include mobile(){
-    @media(max-width: $breakpoint-mobile){
-      a{
-        display: none;
+
+  .left-side {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    img {
+      height: 64px;
+      width: auto;
+      @include mobile() {
+        height: 46px; // Un poco más pequeño para que no ocupe toda la pantalla
+      }
+    }
+
+    a {
+      font-family: $font-family;
+      font-weight: bold;
+      font-size: $font-size-small;
+      color: $gray-100;
+      text-decoration: none;
+
+      @include mobile() {
+        display: none; // Escondemos los links de texto en móvil
+      }
+    }
+  }
+
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @include mobile() {
+      gap: 12px; // Menos separación entre iconos en móvil
+    }
+
+    .dropdown {
+      position: relative;
+      .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        background: none;
+        border: none;
+        gap: 8px;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .button-text{
+        @include font-styles($font-family, 400, $font-size-small, $gray-100);
+      }
+      .icon-user,
+      .icon-arrow-dropdown,
+      .icon-globe,
+      .icon-phone,
+      .icon-power-off,
+      .icon-lock {
+        color: $primary;
+      }
+      @include mobile() {
+        .button-text,
+        .icon-arrow-dropdown,
+        .icon-globe {
+          display: none; // Escondemos el texto del dropdown en móvil
+        }
+      }
+    }
+
+    // El icono de hamburguesa que tienes en tu Pug
+    .icon-burguer_menu {
+      display: none; // Oculto en escritorio
+      
+      @include mobile() {
+        display: inline-block; // Visible en móvil
+        font-size: $font-size-medium;
+        cursor: pointer;
       }
     }
   }
 }
-
-
-.icon-color{
-  color: $primary;
-}
-
-
-.right-side{  
-  display: flex;
-  align-items: center;
-  gap: 24px; 
-  height: 40px;
-  
-  button{
-    display: flex;        
-    align-items: center;  
-    gap: 0.5rem;           
-    text-decoration: none;    
-    background: none;
-    border: none;
-  }   
-  .user, .globe {
-    font-size: $font-size-medium;      
-  }
-  .arrow-down{
-    padding-left: 8px;
-    font-size: 6px;
-  }
-  .button-text{
-    @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  }
-
-  .icon-burger_menu{
-    display: none;
-  }
-
-  @include mobile() {
-    .button-text, .arrow-down, .globe{
-      display: none;
-    }
-    .icon-burger_menu{
-      display: block;
-      font-size: $font-size-medium;
-    }
-  }
-}
-
-

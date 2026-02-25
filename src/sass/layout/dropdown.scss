@@ -1,22 +1,65 @@
-.dropdown {
-  position: relative; // CLAVE para que el dropdown se coloque debajo del botón
-}
+@use '../helpers/variables' as *;
+@use '../helpers/mixins' as *;
 
-.dropdown-profile {
+
+.dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 280px;
-  background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  display: none; // oculto por defecto
-  z-index: 20;
+  background-color: $light;
+  border: 1px solid $gray-25;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba($gray-100, 0.1);
+  width: 340px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
 
   &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-header {
+    h1{
+      @include font-styles($font-family, bold, $font-size-small, $gray-100);
+      margin: 24px 254px 22px 24px;
+    }
+    p {
+      @include font-styles($font-family, 400, $font-size-small, $gray-100);
+      margin: 0 24px 24px 24px;
+    }
+  }
+
+  .dropdown-element {
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    padding: 18px 24px 18px 32px;
+    cursor: pointer;
+    transition: border-color 0.2s;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 12px;
+    border-left: 3px solid transparent;
+    background: none;
+
+    &:hover {
+      border-left-color: $primary;
+      background: none;
+    }
+
+    &:last-child:hover {
+      border-bottom-left-radius: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+    }
   }
 }
