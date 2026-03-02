@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileDropdown = document.querySelector('.navbar .right-side > .dropdown:first-of-type');
   const profileMenu = profileDropdown?.querySelector('.dropdown-menu');
   const profileIcon = profileDropdown?.querySelector('.dropdown-toggle span');
+  const mobileMq = window.matchMedia('(max-width: 30rem)');
   const languageDropdowns = document.querySelectorAll('.dropdown');
 
   const getDirectChildByClass = (element, className) => Array.from(element.children).find(
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const syncBurgerUI = () => {
+    const isMobile = mobileMq.matches;
     const isBurgerOpen = Boolean(burgerMenu && burgerMenu.classList.contains('active'));
     const isProfileOpen = Boolean(profileMenu && profileMenu.classList.contains('active'));
     const isBurgerLanguageOpen = Boolean(
@@ -44,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
       burgerIcon.classList.toggle('icon-close', isBurgerOpen);
     }
     if (profileIcon) {
-      profileIcon.classList.toggle('icon-user', !isProfileOpen);
-      profileIcon.classList.toggle('icon-close', isProfileOpen);
+      profileIcon.classList.toggle('icon-user', !isMobile || !isProfileOpen);
+      profileIcon.classList.toggle('icon-close', isMobile && isProfileOpen);
     }
 
     if (rightSide) {
@@ -118,5 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     || 'Español'
   ).trim();
   setLanguageSelection(initialLanguage);
+  mobileMq.addEventListener('change', syncBurgerUI);
   syncBurgerUI();
 });
