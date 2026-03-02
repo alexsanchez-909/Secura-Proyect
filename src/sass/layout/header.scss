@@ -11,7 +11,7 @@
   box-sizing: border-box;
 
   @include mobile() {
-    padding: 16px 24px; // Reducimos el padding para ganar espacio en móvil
+    padding: 16px 24px; // Reducir el padding para ganar espacio en móvil
   }
 
   .left-side {
@@ -23,7 +23,7 @@
       height: 64px;
       width: auto;
       @include mobile() {
-        height: 46px; // Un poco más pequeño para que no ocupe toda la pantalla
+        height: 46px; 
       }
     }
 
@@ -35,7 +35,7 @@
       text-decoration: none;
 
       @include mobile() {
-        display: none; // Escondemos los links de texto en móvil
+        display: none; // Esconder los links de texto en móvil
       }
     }
   }
@@ -46,7 +46,7 @@
     gap: 24px;
 
     @include mobile() {
-      gap: 12px; // Menos separación entre iconos en móvil
+      gap: 12px; 
     }
 
     .dropdown {
@@ -76,19 +76,92 @@
         .button-text,
         .icon-arrow-dropdown,
         .icon-globe {
-          display: none; // Escondemos el texto del dropdown en móvil
+          display: none; 
         }
       }
     }
 
-    // El icono de hamburguesa que tienes en tu Pug
-    .icon-burger_menu {
+    .dropdown-burger {
+      display: none;
+
+      @include mobile() {
+        display: block;
+      }
+
+      .dropdown-menu-burger {
+        display: none;
+
+        @include mobile() {
+          display: block;
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          width: 100vw;
+          background-color: $light;
+          border-top: 1px solid $gray-25;
+          box-shadow: 0 8px 32px rgba($gray-100, 0.15);
+          z-index: 1000;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.2s ease;
+          pointer-events: none;
+        }
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        .dropdown-element-burger {
+          @include font-styles($font-family, 400, $font-size-small, $gray-100);
+          padding: 18px 24px 18px 32px;
+          border-bottom: 1px solid $gray-25;
+
+          &:hover {
+            background: $primary-25;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+          }
+        }
+      }
+    }
+
+    // El icono de hamburguesa y el de cerrar se muestran solo en móvil
+    .icon-burger_menu,
+    .icon-close {
       display: none; // Oculto en escritorio
+      color: $primary;
+      line-height: 1;
       
       @include mobile() {
         display: inline-block; // Visible en móvil
         font-size: $font-size-medium;
         cursor: pointer;
+      }
+    }
+
+    @include mobile() {
+      &.burger-menu-open {
+        .dropdown:first-of-type {
+          display: none;
+        }
+      }
+      &.profile-menu-open {
+        .dropdown-burger {
+          display: none;
+        }
       }
     }
   }
