@@ -1,0 +1,14 @@
+mixin statePolicy(iconClass, text)
+  .state-policy
+    span(class='icon-' + iconClass)
+    span.state-policy__text= text
+
+mixin renovationCardDesktop(policyNumber, riskName, contractDate, expiryDate, amount)
+  .home-renovations__card
+    p.home-renovations__cell.home-renovations__cell--policy(data-label="No. de póliza")= policyNumber
+    p.home-renovations__cell.home-renovations__cell--risk(data-label="Nombre del riesgo")= riskName
+    p.home-renovations__cell.home-renovations__cell--contract-date(data-label="Fecha de contrato")= contractDate
+    p.home-renovations__cell.home-renovations__cell--expiry-date(data-label="Fecha de vencimiento")= expiryDate
+    p.home-renovations__cell.home-renovations__cell--amount(data-label="Importe")= amount
+    .home-renovations__cell.home-renovations__cell--state(data-label="Estado de póliza")
+      block

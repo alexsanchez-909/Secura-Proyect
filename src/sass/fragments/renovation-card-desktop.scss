@@ -1,0 +1,117 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/variables" as *;
+
+.home-renovations {
+  margin: 0 24px 24px;
+}
+
+.home-renovations__header {
+  min-height: 29px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0 24px 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid $gray-25;
+
+  h2 {
+    margin: 0;
+    @include font-styles($font-family, 400, $font-size-small, $gray-75);
+  }
+}
+
+.home-renovations__card {
+  min-height: 76px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 15px rgba(55, 70, 73, 0.1);
+}
+
+.home-renovations__cell {
+  margin: 0;
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+}
+
+.home-renovations__cell--amount {
+  font-weight: 700;
+}
+
+.home-renovations__cell--state {
+  display: flex;
+  align-items: center;
+}
+
+.state__warning,
+.state__success,
+.state__rejected {
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.state-policy {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+}
+
+.state__warning {
+  background-color: rgba($policy-pending, 0.4);
+}
+
+.state__success {
+  background-color: rgba($policy-accepted, 0.15);
+
+  .state-policy {
+    color: $policy-accepted-text;
+  }
+}
+
+.state__rejected {
+  background-color: rgba($policy-rejected, 0.12);
+
+  .state-policy {
+    color: $policy-rejected-text;
+  }
+}
+
+@include mobile() {
+  .home-renovations__header {
+    display: none;
+  }
+
+  .home-renovations__card {
+    height: 368px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 12px;
+    padding: 24px 16px;
+  }
+
+  .home-renovations__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .home-renovations__cell::before {
+    content: attr(data-label);
+    @include font-styles($font-family, 400, $font-size-small, $gray-75);
+  }
+
+  .home-renovations__cell--state {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
