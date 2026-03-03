@@ -19,7 +19,11 @@
 @use "layout/dropdown-profile";
 @use "layout/dropdown-language";
 @use "layout/dropdown-burger";
+@use "layout/homepage-banner";
+@use "layout/home";
 
 /** FRAGMENTS **/
+@use "fragments/renovation-card-desktop";
+@use "fragments/potencial-client-card";
 
 /** COMPONENTS **/

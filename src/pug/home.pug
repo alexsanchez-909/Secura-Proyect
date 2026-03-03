@@ -7,4 +7,16 @@ block header
     title Homepage
     
 block content
-    img(src="images/secura-insurance_background_photo.png", alt="logo")
+    .home 
+        include templates/homepage-banner.pug
+        section 
+            p.renovations-tittle Próximas renovaciones
+            .renovations-desktop
+                include templates/renovations-desktop.pug
+            .home-renovations__actions
+                button.home-renovations__view-all(type="button") Ver todos
+                
+        section
+            p.clients-tittle Clientes potenciales
+            .potencial-clients
+                include templates/potencial-clients.pug

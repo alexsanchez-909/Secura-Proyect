@@ -4,7 +4,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; // Esto empuja left y right a los extremos
+  justify-content: space-between; // Empujar left y right a los extremos
   padding: 16px 88px;
   background-color: $light;
   width: 100%;
@@ -20,7 +20,7 @@
     gap: 32px;
 
     img {
-      height: 64px;
+      height: 46px;
       width: auto;
       @include mobile() {
         height: 46px; 

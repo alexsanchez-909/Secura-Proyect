@@ -1,12 +1,12 @@
-@use "../helpers/icons-variables";
+@use '../helpers/icons-variables' as *;
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?70a7xf');
-  src:  url('fonts/icomoon.eot?70a7xf#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?70a7xf') format('truetype'),
-    url('fonts/icomoon.woff?70a7xf') format('woff'),
-    url('fonts/icomoon.svg?70a7xf#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?enkslt');
+  src:  url('fonts/icomoon.eot?enkslt#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?enkslt') format('truetype'),
+    url('fonts/icomoon.woff?enkslt') format('woff'),
+    url('fonts/icomoon.svg?enkslt#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,39 +27,63 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-user:before {
-  content: icons-variables.$icon-user;
+.icon-calendar:before {
+  content: $icon-calendar;
 }
-.icon-mail:before {
-  content: icons-variables.$icon-mail;
+.icon-skip-right:before {
+  content: $icon-skip-right;
 }
-.icon-check:before {
-  content: icons-variables.$icon-check;
+.icon-arrow-right:before {
+  content: $icon-arrow-right;
 }
-.icon-clock:before {
-  content: icons-variables.$icon-clock;
+.icon-back:before {
+  content: $icon-back;
 }
-.icon-globe:before {
-  content: icons-variables.$icon-globe;
+.icon-skip-left:before {
+  content: $icon-skip-left;
 }
-.icon-burger_menu:before {
-  content: icons-variables.$icon-burger_menu;
+.icon-Chev-down:before {
+  content: $icon-Chev-down;
+}
+.icon-filter:before {
+  content: $icon-filter;
+}
+.icon-file:before {
+  content: $icon-file;
 }
 .icon-close:before {
-  content: icons-variables.$icon-close;
+  content: $icon-close;
+}
+.icon-user:before {
+  content: $icon-user;
+}
+.icon-mail:before {
+  content: $icon-mail;
+}
+.icon-check:before {
+  content: $icon-check;
+}
+.icon-clock:before {
+  content: $icon-clock;
+}
+.icon-globe:before {
+  content: $icon-globe;
+}
+.icon-burger_menu:before {
+  content: $icon-burger_menu;
 }
 .icon-power-off:before {
-  content: icons-variables.$icon-power-off;
+  content: $icon-power-off;
 }
 .icon-lock:before {
-  content: icons-variables.$icon-lock;
+  content: $icon-lock;
 }
 .icon-arrow-dropdown:before {
-  content: icons-variables.$icon-arrow-dropdown;
+  content: $icon-arrow-dropdown;
 }
 .icon-phone:before {
-  content: icons-variables.$icon-phone;
+  content: $icon-phone;
 }
 .icon-trash-alt:before {
-  content: icons-variables.$icon-trash-alt;
+  content: $icon-trash-alt;
 }

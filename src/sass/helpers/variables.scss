@@ -38,6 +38,11 @@ $breakpoint-tablet: 40rem; //640px
 $breakpoint-desktop: 64rem; //1024px
 $breakpoint-large-desktop: 75rem; //1200px
 
+/* Policies state */
+$policy-accepted: #57AE60; //15% washed
+$policy-pending: #FFE74F; // 40% washed
+$policy-rejected: #DB3900; // 12% washed
 
-
-
+/* Policies state text */
+$policy-accepted-text: #397A3F;
+$policy-rejected-text: #B22E00;

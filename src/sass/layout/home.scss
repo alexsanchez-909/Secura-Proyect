@@ -1,0 +1,22 @@
+@use  '../helpers/variables' as *;
+@use '../helpers/mixins' as *;
+
+.home{
+    background-color: $light;
+}
+
+.renovations-tittle{
+    @include font-styles($font-family, bold, $font-size-medium, $gray-100);
+    margin-top: 40px;
+    margin-left: 24px;
+    margin-bottom: 24px;
+}
+
+.clients-tittle {
+    @include font-styles($font-weight: 500, $font-size: 24px, $color: $gray-100);
+    margin: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.renovations-desktop {
+    display: block;
+}

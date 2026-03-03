@@ -70,12 +70,12 @@
   }
   @include mobile() {
     position: fixed;
-    top: 80px; // Altura del header, ajusta según tu header real
+    top: 78px;
     left: 0;
     right: 0;
     width: 100vw;
     background-color: $light;
-    height: calc(100vh - 80px); // Resta la altura del header
+    height: calc(100vh - 80px);
     max-width: 100vw;
     max-height: calc(100vh - 80px);
     border-radius: 0 0 16px 16px;

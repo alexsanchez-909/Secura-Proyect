@@ -64,6 +64,7 @@
         overflow-y: auto;
         padding-bottom: 0;
         box-sizing: border-box;
+        
 
         .burger-language-dropdown {
             position: relative;
@@ -101,7 +102,7 @@
         }
 
         .burger-language-dropdown > .dropdown-menu-language {
-            top: auto;
+            top: 78px;
             right: auto;
             left: 0;
             bottom: auto;

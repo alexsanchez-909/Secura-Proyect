@@ -1,0 +1,20 @@
+mixin potentialClientCard(name, offer, mail, phone)
+    .client-card
+        .client-card__top
+            .client-card__header
+                p.client-card__name= name
+                p.client-card__offer= offer
+            button.client-card__icon(type="button" aria-label="Eliminar cliente")
+                span.icon-trash-alt
+        .client-card__bottom
+            .client-card__contact
+                span.client-card__mail
+                    span Email:
+                    span= mail
+                span.client-card__phone
+                    span Teléfono:
+                    span= phone
+
+.client-list
+    +potentialClientCard("Jose Carlos Rodriguez", "Producto a ofrecer: Seguro de moto", "jose.rod@gmail.com", "+34 258 632 555")
+    +potentialClientCard("Ana Perffeti", "Producto a ofrecer: Seguro de casa", "ana.per@gmail.com", "+34 258 632 444")
