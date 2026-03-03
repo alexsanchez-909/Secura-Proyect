@@ -47,6 +47,22 @@
   align-items: center;
 }
 
+.home-renovations__actions {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2rem 0 0 2rem;
+}
+
+.home-renovations__view-all {
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid $primary-25;
+  border-radius: 8px;
+  background-color: $primary-25;
+  cursor: pointer;
+  @include font-styles($font-family, 300, $font-size-small, $gray-100);
+}
+
 .state__warning,
 .state__success,
 .state__rejected {
@@ -114,4 +130,5 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
 }

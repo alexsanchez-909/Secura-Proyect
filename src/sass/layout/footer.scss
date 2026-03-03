@@ -1,0 +1,86 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/variables" as *;
+
+.footer {
+  padding: 16px 32px;
+  background-color: $light;
+}
+
+.site-footer__grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  row-gap: 24px;
+}
+
+.site-footer__support {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-footer__help {
+  @include font-styles($font-family, 700, $font-size-small, $primary);
+}
+
+.site-footer__line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+}
+
+.site-footer__address {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: right;
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+}
+
+.site-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+    @include font-styles($font-family, 500, $font-size-extrasmall, $gray-100);
+  }
+}
+
+.site-footer__copy {
+  justify-self: end;
+  text-align: right;
+  @include font-styles($font-family, 400, $font-size-extrasmall, $gray-100);
+}
+
+@include mobile() {
+  .footer {
+    padding: 16px;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .site-footer__address,
+  .site-footer__copy {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .site-footer__legal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .site-footer__divider {
+    display: none;
+  }
+}
