@@ -1,5 +1,5 @@
 // Inicializar todos los dropdowns
-document.addEventListener('DOMContentLoaded', () => {
+function initDropdowns() {
   const dropdowns = document.querySelectorAll('.dropdown');
   const rightSide = document.querySelector('.navbar .right-side');
   const burgerDropdown = document.querySelector('.dropdown.dropdown-burger');
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (child) => child.classList && child.classList.contains(className),
   );
 
+  // Función para actualizar la selección de idioma en todos los dropdowns
   const setLanguageSelection = (language) => {
     languageDropdowns.forEach((dropdown) => {
       const languageMenu = getDirectChildByClass(dropdown, 'dropdown-menu-language');
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // Función para sincronizar el estado de los iconos y clases según el estado de los menús
   const syncBurgerUI = () => {
     const isMobile = mobileMq.matches;
     const isBurgerOpen = Boolean(burgerMenu && burgerMenu.classList.contains('active'));
@@ -59,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Función para cerrar todos los dropdowns excepto el especificado
   const closeAllDropdowns = (exceptDropdown = null) => {
     dropdowns.forEach((dropdown) => {
       const shouldKeepOpen = exceptDropdown && (
@@ -75,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     syncBurgerUI();
   };
 
+  // Configurar eventos para cada dropdown
   dropdowns.forEach((dropdown) => {
     const toggleBtn = dropdown.querySelector('.dropdown-toggle');
     const menu = dropdown.querySelector('.dropdown-menu, .dropdown-menu-language, .dropdown-menu-burger');
@@ -122,4 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setLanguageSelection(initialLanguage);
   mobileMq.addEventListener('change', syncBurgerUI);
   syncBurgerUI();
-});
+}
+
+document.addEventListener('DOMContentLoaded', initDropdowns);

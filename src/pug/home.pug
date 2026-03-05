@@ -9,14 +9,14 @@ block header
 block content
     .home 
         include templates/homepage-banner.pug
-        section 
+        section.home-section
             p.renovations-tittle Próximas renovaciones
             .renovations-desktop
                 include templates/renovations-desktop.pug
             .home-renovations__actions
                 button.home-renovations__view-all(type="button") Ver todos
                 
-        section
+        section.home-section
             p.clients-tittle Clientes potenciales
             .potencial-clients
                 include templates/potencial-clients.pug

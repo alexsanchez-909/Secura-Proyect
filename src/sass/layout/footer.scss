@@ -2,21 +2,50 @@
 @use "../helpers/variables" as *;
 
 .footer {
-  padding: 16px 32px;
-  background-color: $light;
+  padding: 1rem 2rem;
+  background-color: #fff;
+
+  .icon-mail,
+  .icon-phone {
+    color: $primary;
+  }
+
+  @include tablet {
+    padding: 1rem;
+
+    .site-footer__grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-footer__address {
+      margin-top: 0.625rem;
+    }
+  }
+
+  @include mobile {
+    padding: 1rem;
+    margin-bottom: 10px;
+
+    .site-footer__grid {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-footer__address {
+      margin-top: 0.625rem;
+    }
+
+    .site-footer__copy {
+      @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    }
+  }
 }
 
 .site-footer__grid {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  row-gap: 24px;
-}
-
-.site-footer__support {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .site-footer__help {
@@ -24,63 +53,93 @@
 }
 
 .site-footer__line {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  margin-top: 0.75rem;
   text-decoration: none;
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
 }
 
+.site-footer__line .icon-mail,
+.site-footer__line .icon-phone {
+  margin-right: 0.3125rem;
+  font-size: 1rem;
+}
+
 .site-footer__address {
-  justify-self: end;
+  margin-top: 1.40625rem;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-self: end;
   text-align: right;
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
 }
 
+.site-footer__company {
+  margin-bottom: 0.75rem;
+}
+
 .site-footer__legal {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  margin-top: 2rem;
 
   a {
     text-decoration: none;
     @include font-styles($font-family, 500, $font-size-extrasmall, $gray-100);
   }
+
+  .site-footer__divider {
+    margin-inline: 1.5rem;
+  }
+
+  @include desktop {
+    .site-footer__divider {
+      margin-inline: 0.875rem;
+    }
+  }
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    }
+
+    a:nth-of-type(2) {
+      margin: 0.875rem 0;
+    }
+
+    .site-footer__divider {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    }
+
+    a:nth-of-type(2) {
+      margin: 0.875rem 0;
+    }
+
+    .site-footer__divider {
+      display: none;
+    }
+  }
 }
 
 .site-footer__copy {
+  margin-top: 2.03125rem;
+  display: flex;
   justify-self: end;
   text-align: right;
   @include font-styles($font-family, 400, $font-size-extrasmall, $gray-100);
-}
 
-@include mobile() {
-  .footer {
-    padding: 16px;
-  }
-
-  .site-footer__grid {
-    grid-template-columns: 1fr;
-    row-gap: 16px;
-  }
-
-  .site-footer__address,
-  .site-footer__copy {
-    justify-self: start;
-    text-align: left;
-  }
-
-  .site-footer__legal {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .site-footer__divider {
-    display: none;
+  @include tablet {
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
   }
 }

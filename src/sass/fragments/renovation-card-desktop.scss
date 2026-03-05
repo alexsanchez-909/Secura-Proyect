@@ -2,7 +2,7 @@
 @use "../helpers/variables" as *;
 
 .home-renovations {
-  margin: 0 24px 24px;
+  margin: 0 0 24px;
 }
 
 .home-renovations__header {
@@ -50,7 +50,7 @@
 .home-renovations__actions {
   display: flex;
   justify-content: flex-start;
-  margin: 2rem 0 0 2rem;
+  margin-top: 2rem;
 }
 
 .home-renovations__view-all {
