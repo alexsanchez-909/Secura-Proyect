@@ -1,7 +1,6 @@
 @use '../helpers/variables' as *;
 @use '../helpers/mixins' as *;
 
-
 .dropdown-menu {
   position: absolute;
   top: 200%;
@@ -16,59 +15,62 @@
   transform: translateY(-10px);
   transition: all 0.2s ease;
   pointer-events: none;
+}
 
-  &.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
-  .dropdown-header {
-    h1{
-      @include font-styles($font-family, bold, $font-size-small, $gray-100);
-      margin: 24px 254px 22px 24px;
-    }
-    p {
-      @include font-styles($font-family, 400, $font-size-small, $gray-100);
-      margin: 0 24px 24px 24px;
-    }
-  }
+.dropdown-menu .dropdown-header h1 {
+  @include font-styles($font-family, bold, $font-size-small, $gray-100);
+  margin: 24px 254px 22px 24px;
+}
 
-  .dropdown-element {
-    @include font-styles($font-family, 400, $font-size-small, $gray-100);
-    padding: 18px 24px 18px 32px;
-    cursor: pointer;
-    transition: border-color 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-left: 3px solid transparent;
-    background: none;
-    border-top: 2px solid $gray-25;
+.dropdown-menu .dropdown-header p {
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+  margin: 0 24px 24px 24px;
+}
 
-    &:hover {
-      border-left-color: $primary;
-      background: none;
-    }
+.dropdown-menu .dropdown-element {
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+  padding: 18px 24px 18px 32px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 3px solid transparent;
+  background: none;
+  border-top: 2px solid $gray-25;
+}
 
-    &:last-child:hover {
-      border-bottom-left-radius: 16px;
-    }
+.dropdown-menu .dropdown-element:hover {
+  border-left-color: $primary;
+  background: none;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      flex: 1;
-    }
-    .icon-user,
-    .icon-lock,
-    .icon-phone,
-    .icon-power-off{
-      font-size: $font-size-medium;
-    }
-  }
-  @include mobile() {
+.dropdown-menu .dropdown-element:last-child:hover {
+  border-bottom-left-radius: 16px;
+}
+
+.dropdown-menu .dropdown-element a {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.dropdown-menu .dropdown-element .icon-user,
+.dropdown-menu .dropdown-element .icon-lock,
+.dropdown-menu .dropdown-element .icon-phone,
+.dropdown-menu .dropdown-element .icon-power-off {
+  font-size: $font-size-medium;
+}
+
+@include mobile() {
+  .dropdown-menu {
     position: fixed;
     top: 78px;
     left: 0;
@@ -81,15 +83,15 @@
     border-radius: 0 0 16px 16px;
     box-shadow: 0 8px 32px rgba($gray-100, 0.15);
     border-top: 1px solid $gray-25;
-    .dropdown-header {
-    h1{
-      @include font-styles($font-family, bold, $font-size-small, $gray-100);
-      margin: 24px 234px 22px 24px;
-    }
-    p {
-      @include font-styles($font-family, 400, $font-size-small, $gray-100);
-      margin: 0 24px 24px 24px;
-    }
   }
-}
+
+  .dropdown-menu .dropdown-header h1 {
+    @include font-styles($font-family, bold, $font-size-small, $gray-100);
+    margin: 24px 234px 22px 24px;
+  }
+
+  .dropdown-menu .dropdown-header p {
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    margin: 0 24px 24px 24px;
+  }
 }

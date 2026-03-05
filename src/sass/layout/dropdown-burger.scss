@@ -1,125 +1,129 @@
 @use '../helpers/variables' as *;
 @use '../helpers/mixins' as *;
 
-.dropdown-menu-burger{
-    position: absolute;
-    top: 200%;
-    right: -10px;
-    background-color: $light;
-    box-shadow: 0 2px 8px rgba($gray-100, 0.2);
-    width: 200px;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s ease;
-    pointer-events: none;
+.dropdown-menu-burger {
+  position: absolute;
+  top: 200%;
+  right: -10px;
+  background-color: $light;
+  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
+  width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
 
-    
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
+.dropdown-menu-burger.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
-    .dropdown-element-burger {
-        @include font-styles($font-family, 400, $font-size-small, $gray-100);
-        padding: 18px 24px 18px 32px;
-        cursor: pointer;
-        transition: border-color 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: none;
-        border-bottom: 1px solid $gray-25;
+.dropdown-menu-burger .dropdown-element-burger {
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+  padding: 18px 24px 18px 32px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border-bottom: 1px solid $gray-25;
+}
 
-        &:hover {
-            background: $primary-25;
-        }
-        &:first-child:hover {
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        &:last-child:hover {
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-        &:last-child {
-            border-bottom: none;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            flex: 1;
-        }
-    }
+.dropdown-menu-burger .dropdown-element-burger:hover {
+  background: $primary-25;
+}
 
-    @include mobile() {
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        min-height: calc(100vh - 80px);
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-        padding-bottom: 0;
-        box-sizing: border-box;
-        
+.dropdown-menu-burger .dropdown-element-burger:first-child:hover {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
 
-        .burger-language-dropdown {
-            position: relative;
-            margin-top: auto;
-            margin-left: 24px;
-            margin-bottom: 24px;
-            width: calc(100vw - 48px);
-            max-width: 220px;
-        }
+.dropdown-menu-burger .dropdown-element-burger:last-child:hover {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
 
-        .burger-language-dropdown > .dropdown-toggle {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            border: 1px solid $gray-25;
-            border-radius: 12px;
-            background: $light;
-            padding: 10px 12px;
-            cursor: pointer;
-            color: $gray-100;
-            @include font-styles($font-family, 400, $font-size-small, $gray-100);
+.dropdown-menu-burger .dropdown-element-burger:last-child {
+  border-bottom: none;
+}
 
-            .icon-globe,
-            .icon-arrow-dropdown {
-                color: $primary;
-                display: inline-block;
-            }
-            .button-text {
-                display: inline-block;
-                flex: 1;
-                text-align: left;
-            }
-        }
+.dropdown-menu-burger .dropdown-element-burger a {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
 
-        .burger-language-dropdown > .dropdown-menu-language {
-            top: 78px;
-            right: auto;
-            left: 0;
-            bottom: auto;
-            top: calc(100% + 8px);
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba($gray-100, 0.14);
-            z-index: 2;
-        }
+@include mobile() {
+  .dropdown-menu-burger {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
 
-        .burger-language-dropdown > .dropdown-menu-language .dropdown-element-language {
-            padding: 12px;
-        }
+  .dropdown-menu-burger .burger-language-dropdown {
+    position: relative;
+    margin-top: auto;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    width: calc(100vw - 48px);
+    max-width: 220px;
+  }
 
-        &.language-menu-open {
-            max-height: calc(100vh - 80px);
-            overflow-y: auto;
-        }
-    }
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border: 1px solid $gray-25;
+    border-radius: 12px;
+    background: $light;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: $gray-100;
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
+  }
+
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-toggle .icon-globe,
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-toggle .icon-arrow-dropdown {
+    color: $primary;
+    display: inline-block;
+  }
+
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-toggle .button-text {
+    display: inline-block;
+    flex: 1;
+    text-align: left;
+  }
+
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-menu-language {
+    right: auto;
+    left: 0;
+    bottom: auto;
+    top: calc(100% + 8px);
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba($gray-100, 0.14);
+    z-index: 2;
+  }
+
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-menu-language .dropdown-element-language {
+    padding: 12px;
+  }
+
+  .dropdown-menu-burger.language-menu-open {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
 }

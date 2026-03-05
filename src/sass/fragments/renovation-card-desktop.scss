@@ -63,6 +63,11 @@
   @include font-styles($font-family, 300, $font-size-small, $gray-100);
 }
 
+.home-renovations__view-all:hover {
+  background-color: $primary-75;
+  border-color: $primary-75;
+}
+
 .state__warning,
 .state__success,
 .state__rejected {

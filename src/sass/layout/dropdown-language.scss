@@ -2,57 +2,60 @@
 @use '../helpers/mixins' as *;
 
 .dropdown-menu-language {
-    position: absolute;
-    top: 200%;
-    right: -10px;
-    background-color: $light;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba($gray-100, 0.2);
-    width: 131px;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s ease;
-    pointer-events: none;
-    
-    
-    &.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
+  position: absolute;
+  top: 200%;
+  right: -10px;
+  background-color: $light;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
+  width: 131px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
 
-    .dropdown-element-language {
-        @include font-styles($font-family, 400, $font-size-small, $gray-100);
-        padding: 18px 24px 18px 32px;
-        cursor: pointer;
-        transition: border-color 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background: none;
-        border-bottom: 1px solid $gray-25;
+.dropdown-menu-language.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
-        &:hover {
-            background: $primary-25;
-        }
-        &:first-child:hover {
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        &:last-child:hover {
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-        &:last-child {
-            border-bottom: none;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            flex: 1;
-        }
-    }
+.dropdown-menu-language .dropdown-element-language {
+  @include font-styles($font-family, 400, $font-size-small, $gray-100);
+  padding: 18px 24px 18px 32px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border-bottom: 1px solid $gray-25;
+}
+
+.dropdown-menu-language .dropdown-element-language:hover {
+  background: $primary-25;
+}
+
+.dropdown-menu-language .dropdown-element-language:first-child:hover {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.dropdown-menu-language .dropdown-element-language:last-child:hover {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.dropdown-menu-language .dropdown-element-language:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu-language .dropdown-element-language a {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
 }
