@@ -19,12 +19,12 @@ html(lang="es")
 			- var mainClass = mainClass + ' ' + pageClass;
 
 		header(id="header" class='header')
-			include header.pug
+			include header/header.pug
 
 		main(id="main-content", class=mainClass)
 			block content
 
 		footer(id="footer" class="footer")
-			include footer.pug
+			include footer/footer.pug
 
 		script(src="js/main.js")

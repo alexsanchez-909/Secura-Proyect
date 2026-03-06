@@ -1,0 +1,94 @@
+@use '../helpers/mixins' as *;
+@use '../helpers/variables' as *;
+@use '../helpers/icons-variables' as *;
+
+.renovations__sub-header {
+  padding: 32px 88px;
+  border-top: 1px solid $gray-25;
+
+  @include tablet {
+    padding: 24px 109px 30px 16px;
+  }
+
+  @include mobile {
+    padding: 24px 109px 30px 16px;
+  }
+}
+
+.renovations__breadcrumb {
+  margin-bottom: 44px;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.renovations__breadcrumb .renovations__breadcrumb__item {
+  @include font-styles($font-family, 400, $font-size-small, $primary);
+}
+
+.renovations__breadcrumb .separation {
+  margin: 0 5px;
+  @include font-styles($font-family, 400, $font-size-small, $subble-text);
+}
+
+.renovations__breadcrumb .renovations__breadcrumb__item:last-child {
+  @include font-styles($font-family, 400, $font-size-small, $subble-text);
+}
+
+.renovations__page-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.renovations__page-info .reonovations__page-info__tittle {
+  @include font-styles($font-family, 400, $font-size-medium, $gray-100);
+}
+
+.renovations__page-info .renovations__page-info__files {
+  @include tablet {
+    margin-top: 16px;
+  }
+
+  @include mobile {
+    margin-top: 16px;
+  }
+}
+
+.renovations__page-info__files {
+  padding: 8.5px 12px;
+  background-color: $primary-25;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.renovations__page-info__files .icon-file {
+  font-size: $font-size-small;
+  color: $gray-75;
+}
+
+.renovations__page-info__files .renovations__page-info__files__number {
+  margin: 0 4px 0 10px;
+  @include font-styles($font-family, 400, $font-size-small, $gray-75);
+}
+
+.renovations__page-info__files .renovation__page-info__files__text {
+  @include font-styles($font-family, 400, $font-size-small, $gray-75);
+}
