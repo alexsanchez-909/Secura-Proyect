@@ -1,5 +1,7 @@
 // Inicializar todos los dropdowns
 function initDropdowns() {
+
+  const navbar = document.querySelector('.navbar');
   const dropdowns = document.querySelectorAll('.dropdown');
   const rightSide = document.querySelector('.navbar .right-side');
   const burgerDropdown = document.querySelector('.dropdown.dropdown-burger');
@@ -10,6 +12,24 @@ function initDropdowns() {
   const profileIcon = profileDropdown?.querySelector('.dropdown-toggle span');
   const mobileMq = window.matchMedia('(max-width: 30rem)');
   const languageDropdowns = document.querySelectorAll('.dropdown');
+
+  // Si no existe la estructura principal del header, no inicializar nada.
+  if (!navbar || !rightSide || dropdowns.length === 0) {
+    return;
+  }
+  let isPageScrollLocked = false;
+
+  const preventScrollWhileLocked = (event) => {
+    if (!isPageScrollLocked) return;
+    event.preventDefault();
+  };
+
+  const setPageScrollLock = (shouldLock) => {
+    isPageScrollLocked = shouldLock;
+    const overflowValue = shouldLock ? 'hidden' : '';
+    document.body.style.overflow = overflowValue;
+    document.documentElement.style.overflow = overflowValue;
+  };
 
   const getDirectChildByClass = (element, className) => Array.from(element.children).find(
     (child) => child.classList && child.classList.contains(className),
@@ -34,31 +54,41 @@ function initDropdowns() {
     });
   };
 
-  // Función para sincronizar el estado de los iconos y clases según el estado de los menús
-  const syncBurgerUI = () => {
-    const isMobile = mobileMq.matches;
-    const isBurgerOpen = Boolean(burgerMenu && burgerMenu.classList.contains('active'));
-    const isProfileOpen = Boolean(profileMenu && profileMenu.classList.contains('active'));
-    const isBurgerLanguageOpen = Boolean(
-      burgerMenu && burgerMenu.querySelector('.burger-language-dropdown > .dropdown-menu-language.active'),
+  // Actualiza iconos y clases del header en base al estado real de los dropdowns
+  const updateHeaderDropdownUI = () => {
+    const isMobileView = mobileMq.matches;
+    const isBurgerMenuOpen = burgerMenu?.classList.contains('active') ?? false;
+    const isProfileMenuOpen = profileMenu?.classList.contains('active') ?? false;
+    const isAnyDropdownOpen = Array.from(dropdowns).some((dropdown) => (
+      Boolean(dropdown.querySelector('.dropdown-menu.active, .dropdown-menu-language.active, .dropdown-menu-burger.active'))
+    ));
+    const isBurgerLanguageMenuOpen = Boolean(
+      burgerMenu?.querySelector('.burger-language-dropdown > .dropdown-menu-language.active'),
     );
 
+    const shouldShowProfileCloseIcon = isMobileView && isProfileMenuOpen;
+    const shouldShowBurgerLanguageOpenClass = isBurgerMenuOpen && isBurgerLanguageMenuOpen;
+    //Toggle para el icono burger/close
     if (burgerIcon) {
-      burgerIcon.classList.toggle('icon-burger_menu', !isBurgerOpen);
-      burgerIcon.classList.toggle('icon-close', isBurgerOpen);
+      burgerIcon.classList.toggle('icon-burger_menu', !isBurgerMenuOpen);
+      burgerIcon.classList.toggle('icon-close', isBurgerMenuOpen);
     }
+    //Toggle para el icono user/close
     if (profileIcon) {
-      profileIcon.classList.toggle('icon-user', !isMobile || !isProfileOpen);
-      profileIcon.classList.toggle('icon-close', isMobile && isProfileOpen);
+      profileIcon.classList.toggle('icon-user', !shouldShowProfileCloseIcon);
+      profileIcon.classList.toggle('icon-close', shouldShowProfileCloseIcon);
+    }
+    //Toggle para mostrar el menú burger abierto (con clase que muestra fondo oscuro y fija el scroll)
+    if (rightSide) {
+      rightSide.classList.toggle('burger-menu-open', isBurgerMenuOpen);
+      rightSide.classList.toggle('profile-menu-open', isProfileMenuOpen);
+    }
+    //Toggle para mostrar el fondo oscuro y scroll fijo cuando el menú burger de idiomas está abierto
+    if (burgerMenu) {
+      burgerMenu.classList.toggle('language-menu-open', shouldShowBurgerLanguageOpenClass);
     }
 
-    if (rightSide) {
-      rightSide.classList.toggle('burger-menu-open', isBurgerOpen);
-      rightSide.classList.toggle('profile-menu-open', isProfileOpen);
-    }
-    if (burgerMenu) {
-      burgerMenu.classList.toggle('language-menu-open', isBurgerOpen && isBurgerLanguageOpen);
-    }
+    setPageScrollLock(isMobileView && isAnyDropdownOpen);
   };
 
   // Función para cerrar todos los dropdowns excepto el especificado
@@ -75,7 +105,7 @@ function initDropdowns() {
         menu.classList.remove('active');
       }
     });
-    syncBurgerUI();
+    updateHeaderDropdownUI();
   };
 
   // Configurar eventos para cada dropdown
@@ -95,7 +125,7 @@ function initDropdowns() {
       } else {
         menu.classList.remove('active');
       }
-      syncBurgerUI();
+      updateHeaderDropdownUI();
     });
 
     menu.addEventListener('click', (e) => {
@@ -106,7 +136,7 @@ function initDropdowns() {
 
       e.stopPropagation();
       menu.classList.remove('active');
-      syncBurgerUI();
+      updateHeaderDropdownUI();
 
       if (menu.classList.contains('dropdown-menu-language')) {
         const selectedLanguage = selectedItem.textContent.trim();
@@ -118,14 +148,16 @@ function initDropdowns() {
   document.addEventListener('click', () => {
     closeAllDropdowns();
   });
+  document.addEventListener('wheel', preventScrollWhileLocked, { passive: false });
+  document.addEventListener('touchmove', preventScrollWhileLocked, { passive: false });
 
   const initialLanguage = (
     document.querySelector('.navbar .right-side > .dropdown:nth-of-type(2) .dropdown-toggle .button-text')?.textContent
     || 'Español'
   ).trim();
   setLanguageSelection(initialLanguage);
-  mobileMq.addEventListener('change', syncBurgerUI);
-  syncBurgerUI();
+  mobileMq.addEventListener('change', updateHeaderDropdownUI);
+  updateHeaderDropdownUI();
 }
 
 document.addEventListener('DOMContentLoaded', initDropdowns);
