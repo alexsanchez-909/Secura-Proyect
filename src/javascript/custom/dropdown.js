@@ -139,6 +139,7 @@ function initDropdowns() {
       updateHeaderDropdownUI();
 
       if (menu.classList.contains('dropdown-menu-language')) {
+        e.preventDefault();
         const selectedLanguage = selectedItem.textContent.trim();
         setLanguageSelection(selectedLanguage);
       }

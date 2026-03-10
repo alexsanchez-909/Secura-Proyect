@@ -73,9 +73,9 @@
   .dropdown-menu-burger {
     display: flex;
     flex-direction: column;
-    height: 855px;
-    min-height: 855px;
-    max-height: 855px;
+    height: 775px;
+    min-height: 775px;
+    max-height: 775px;
     width: 100vw;
     overflow-y: hidden;
     padding-bottom: 0;
@@ -134,7 +134,7 @@
     transform: translateY(0);
   }
 
-  .dropdown-menu-burger .burger-language-dropdown > .dropdown-menu-language .dropdown-element-language {
+  .dropdown-menu-burger .burger-language-dropdown > .dropdown-menu-language .dropdown-item {
     padding: 12px;
   }
 
