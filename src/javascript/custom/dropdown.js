@@ -6,12 +6,13 @@ function initDropdowns() {
   const rightSide = document.querySelector('.navbar .right-side');
   const burgerDropdown = document.querySelector('.dropdown.dropdown-burger');
   const burgerMenu = burgerDropdown?.querySelector('.dropdown-menu-burger');
+  const burgerLanguageDropdown = burgerMenu?.querySelector('.dropdown-menu-burger__language-dropdown');
   const burgerIcon = burgerDropdown?.querySelector('.dropdown-toggle span');
   const profileDropdown = document.querySelector('.navbar .right-side > .dropdown:first-of-type');
   const profileMenu = profileDropdown?.querySelector('.dropdown-menu');
   const profileIcon = profileDropdown?.querySelector('.dropdown-toggle span');
   const mobileMq = window.matchMedia('(max-width: 30rem)');
-  const languageDropdowns = document.querySelectorAll('.dropdown');
+  const languageDropdowns = document.querySelectorAll('.dropdown, .dropdown-menu-burger__language-dropdown');
 
   // Si no existe la estructura principal del header, no inicializar nada.
   if (!navbar || !rightSide || dropdowns.length === 0) {
@@ -63,7 +64,7 @@ function initDropdowns() {
       Boolean(dropdown.querySelector('.dropdown-menu.active, .dropdown-menu-language.active, .dropdown-menu-burger.active'))
     ));
     const isBurgerLanguageMenuOpen = Boolean(
-      burgerMenu?.querySelector('.burger-language-dropdown > .dropdown-menu-language.active'),
+      burgerMenu?.querySelector('.dropdown-menu-burger__language-dropdown > .dropdown-menu-language.active'),
     );
 
     const shouldShowProfileCloseIcon = isMobileView && isProfileMenuOpen;
@@ -145,6 +146,39 @@ function initDropdowns() {
       }
     });
   });
+
+  if (burgerLanguageDropdown) {
+    const languageToggleBtn = burgerLanguageDropdown.querySelector('.dropdown-toggle');
+    const languageMenu = burgerLanguageDropdown.querySelector('.dropdown-menu-language');
+
+    if (languageToggleBtn && languageMenu) {
+      languageToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        const isOpen = languageMenu.classList.contains('active');
+        closeAllDropdowns(burgerLanguageDropdown);
+        if (!isOpen) {
+          languageMenu.classList.add('active');
+        } else {
+          languageMenu.classList.remove('active');
+        }
+        updateHeaderDropdownUI();
+      });
+
+      languageMenu.addEventListener('click', (e) => {
+        const selectedItem = e.target.closest('.dropdown-item');
+        if (!selectedItem) return;
+
+        e.stopPropagation();
+        e.preventDefault();
+        languageMenu.classList.remove('active');
+        updateHeaderDropdownUI();
+
+        const selectedLanguage = selectedItem.textContent.trim();
+        setLanguageSelection(selectedLanguage);
+      });
+    }
+  }
 
   document.addEventListener('click', () => {
     closeAllDropdowns();
