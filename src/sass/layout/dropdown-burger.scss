@@ -6,23 +6,23 @@
   top: 200%;
   right: 0;
   background-color: $light;
-  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
-  width: 375px;
+  box-shadow: 0 rem(2px) rem(8px) rgba($gray-100, 0.2);
+  width: rem(375px);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
+  transform: translateY(-rem(10px));
   transition: all 0.2s ease;
   pointer-events: none;
 
   @include mobile() {
     position: fixed;
-    top: 70px;
+    top: rem(70px);
     left: 0;
     right: 0;
     width: 100vw;
     background-color: $light;
-    height: calc(100vh - 80px);
+    height: calc(100vh - rem(70px));
     max-width: 100vw;
     overflow-y: hidden;
     box-sizing: border-box;
@@ -37,12 +37,12 @@
 
 .dropdown-menu-burger .dropdown-menu-burger__item {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  padding: 18px 24px 18px 32px;
+  padding: rem(18px) rem(24px) rem(18px) rem(32px);
   cursor: pointer;
   transition: border-color 0.2s;
   display: block;
-  border-left: 3px solid transparent;
-  border-top: 2px solid $gray-10;
+  border-left: rem(3px) solid transparent;
+  border-top: rem(2px) solid $gray-10;
   background: none;
   text-decoration: none;
   color: inherit;
@@ -54,7 +54,7 @@
 }
 
 .dropdown-menu-burger .dropdown-menu-burger__item:last-of-type {
-  border-bottom: 1px solid $gray-10;
+  border-bottom: rem(1px) solid $gray-10;
 }
 
 .dropdown-menu-burger .dropdown-menu-burger__language-dropdown {
@@ -64,10 +64,10 @@
 
   @include mobile() {
     position: absolute;
-    left: 21px;
-    bottom: 20px;
+    left: rem(21px);
+    bottom: rem(20px);
     margin: 0;
-    width: 129px;
+    width: rem(129px);
     display: block;
   }
 }
@@ -79,15 +79,16 @@
 @include mobile() {
 
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-toggle {
-    width: 129px;
-    height: 40px;
+    width: rem(129px);
+    height: rem(40px);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1px;
-    border-radius: 12px;
+    justify-content: flex-start;
+    gap: 0;
+    border-radius: rem(12px);
     background: $light;
-    padding: 10px 12px;
+    padding: 0;
+    box-sizing: border-box;
     cursor: pointer;
     color: $gray-100;
     @include font-styles($font-family, 400, $font-size-small, $gray-100);
@@ -103,13 +104,21 @@
   }
 
   .dropdown-menu-burger__language-dropdown .icon-globe {
-    padding-left: 8px;
+    padding-left: rem(8px);
+  }
+
+  .dropdown-menu-burger__language-dropdown .icon-arrow-dropdown {
+    margin-left: auto;
+    padding-right: rem(8px);
   }
 
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-toggle .button-text {
     display: inline-block;
     flex: 1;
+    min-width: 0;
     text-align: left;
+    padding-left: rem(8px);
+    white-space: nowrap;
   }
 
   .dropdown-menu-burger__language-dropdown > .dropdown-menu-language {
@@ -117,12 +126,12 @@
     right: auto;
     left: 0;
     top: auto;
-    bottom: calc(100% + 8px);
+    bottom: calc(100% + rem(8px));
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba($gray-100, 0.14);
+    border-radius: rem(12px);
+    box-shadow: 0 rem(8px) rem(24px) rgba($gray-100, 0.14);
     z-index: 2;
-    transform: translateY(10px);
+    transform: translateY(rem(10px));
   }
 
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-menu-language.active {
@@ -130,11 +139,11 @@
   }
 
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-menu-language .dropdown-item {
-    padding: 12px;
+    padding: rem(12px);
   }
 
   .dropdown-menu-burger.language-menu-open {
-    max-height: calc(100vh - 80px);
+    max-height: calc(100vh - rem(80px));
     overflow-y: hidden;
   }
 }

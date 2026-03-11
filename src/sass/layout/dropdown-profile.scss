@@ -6,14 +6,29 @@
   top: 200%;
   right: 0;
   background-color: $light;
-  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
-  width: 375px;
+  box-shadow: rem(0) rem(2px) rem(8px) rgba($gray-100, 0.2);
+  width: rem(375px);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all 0.2s ease;
   pointer-events: none;
+
+  @include mobile() {
+    position: fixed;
+    top: rem(78px);
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: $light;
+    height: calc(100vh - 80px);
+    max-width: 100vw;
+    max-height: calc(100vh - 80px);
+    border-radius: rem(0) rem(0) rem(16px) rem(16px);
+    box-shadow: rem(0) rem(8px) rem(32px) rgba($gray-100, 0.15);
+    border-top: rem(1px) solid $gray-25;
+  }
 }
 
 .dropdown-menu.active {
@@ -25,25 +40,25 @@
 
 .dropdown-menu .dropdown-header h1 {
   @include font-styles($font-family, bold, $font-size-small, $gray-100);
-  margin: 24px 254px 22px 24px;
+  margin: rem(24px) rem(254px) rem(22px) rem(24px);
 }
 
 .dropdown-menu .dropdown-header p {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  margin: 0 24px 24px 24px;
+  margin: rem(0) rem(24px) rem(24px) rem(24px);
 }
 
 .dropdown-menu .dropdown-element {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  padding: 18px 24px 18px 32px;
+  padding: rem(18px) rem(24px) rem(18px) rem(32px);
   cursor: pointer;
   transition: border-color 0.2s;
   display: flex;
   align-items: center;
-  gap: 12px;
-  border-left: 3px solid transparent;
+  gap: rem(12px);
+  border-left: rem(3px) solid transparent;
   background: none;
-  border-top: 2px solid $gray-10;
+  border-top: rem(2px) solid $gray-10;
 }
 
 .dropdown-menu .dropdown-element:hover {
@@ -52,7 +67,11 @@
 }
 
 .dropdown-menu .dropdown-element:last-child:hover {
-  border-bottom-left-radius: 16px;
+  border-bottom-left-radius: rem(16px);
+
+  @include mobile() {
+    border-bottom-right-radius: none;
+  }
 }
 
 .dropdown-menu .dropdown-element a {
@@ -68,29 +87,17 @@
   font-size: $font-size-medium;
 }
 
-@include mobile() {
-  .dropdown-menu {
-    position: fixed;
-    top: 78px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    background-color: $light;
-    height: calc(100vh - 80px);
-    max-width: 100vw;
-    max-height: calc(100vh - 80px);
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 8px 32px rgba($gray-100, 0.15);
-    border-top: 1px solid $gray-25;
-  }
 
-  .dropdown-menu .dropdown-header h1 {
+
+@include mobile() {
+
+  .dropdown-menu .dropdown-header h3 {
     @include font-styles($font-family, bold, $font-size-small, $gray-100);
-    margin: 24px 234px 22px 24px;
+    margin: rem(24px) rem(234px) rem(22px) rem(24px);
   }
 
   .dropdown-menu .dropdown-header p {
     @include font-styles($font-family, 400, $font-size-small, $gray-100);
-    margin: 0 24px 24px 24px;
+    margin: 0 rem(24px) rem(24px) rem(24px);
   }
 }

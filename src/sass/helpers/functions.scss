@@ -1,0 +1,8 @@
+@use 'sass:math';
+
+/* Function px to rem
+    - example of usage: rem(48px)
+*/
+@function rem($pixel, $base: 16px) {
+  @return math.div($pixel, $base) * 1rem;
+}

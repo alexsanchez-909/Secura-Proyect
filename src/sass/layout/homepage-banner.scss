@@ -41,7 +41,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: rem(40px);
     z-index: 2;
 
     @include desktop {
@@ -49,25 +49,26 @@
     }
 
     @include mobile {
-      margin-bottom: 24px;
-      padding-inline: 24px;
+      margin-bottom: rem(24px);
+      padding-inline: rem(24px);
     }
   }
 
   .banner__tittle {
-    width: 695px;
+    width: rem(695px);
     max-width: 100%;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: rem(40px);
     @include font-styles($font-family, bold, $font-size-extralarge, $light);
 
     @include tablet {
-      width: 278px;
+      width: rem(278px);
       @include font-styles($font-family, bold, $font-size-large, $light);
     }
 
     @include mobile {
-      max-width: 358px;
+      inline-size: 12ch;
+      margin-inline: auto;
       @include font-styles($font-family, bold, $font-size-large, $light);
     }
   }
@@ -77,13 +78,14 @@
     @include font-styles($font-family, 400, $font-size-medium, $light);
 
     @include tablet {
-      width: 420px;
-      padding-top: 10px;
+      width: rem(420px);
+      padding-top: rem(10px);
     }
 
     @include mobile {
-      max-width: 284px;
-      padding-top: 16px;
+      inline-size: 24ch;
+      margin-inline: auto;
+      padding-top: rem(16px);
       @include font-styles($font-family, 400, $font-size-medium, $light);
     }
   }

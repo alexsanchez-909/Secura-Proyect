@@ -3,20 +3,20 @@
 @use '../helpers/icons-variables' as *;
 
 .renovations__sub-header {
-  padding: 32px 88px;
-  border-top: 1px solid $gray-25;
+  padding: rem(32px) rem(88px);
+  border-top: rem(1px) solid $gray-25;
 
   @include tablet {
-    padding: 24px 109px 30px 16px;
+    padding: rem(24px) rem(109px) rem(30px) rem(16px);
   }
 
   @include mobile {
-    padding: 24px 109px 30px 16px;
+    padding: rem(24px) rem(109px) rem(30px) rem(16px);
   }
 }
 
 .renovations__breadcrumb {
-  margin-bottom: 44px;
+  margin-bottom: rem(44px);
 
   @include tablet {
     display: none;
@@ -32,7 +32,7 @@
 }
 
 .renovations__breadcrumb .separation {
-  margin: 0 5px;
+  margin: 0 rem(5px);
   @include font-styles($font-family, 400, $font-size-small, $subble-text);
 }
 
@@ -62,18 +62,18 @@
 
 .renovations__page-info .renovations__page-info__files {
   @include tablet {
-    margin-top: 16px;
+    margin-top: rem(16px);
   }
 
   @include mobile {
-    margin-top: 16px;
+    margin-top: rem(16px);
   }
 }
 
 .renovations__page-info__files {
-  padding: 8.5px 12px;
+  padding: rem(8.5px) rem(12px);
   background-color: $primary-25;
-  border-radius: 8px;
+  border-radius: rem(8px);
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -85,7 +85,7 @@
 }
 
 .renovations__page-info__files .renovations__page-info__files__number {
-  margin: 0 4px 0 10px;
+  margin: 0 rem(4px) 0 rem(10px);
   @include font-styles($font-family, 400, $font-size-small, $gray-75);
 }
 

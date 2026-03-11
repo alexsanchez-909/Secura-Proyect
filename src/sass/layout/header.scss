@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 88px;
+  padding: rem(16px) rem(88px);
   background-color: $light;
   width: 100%;
   box-sizing: border-box;
@@ -13,10 +13,10 @@
   .left-side {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: rem(32px);
 
     img {
-      height: 46px;
+      height: rem(46px);
       width: auto;
     }
 
@@ -32,7 +32,7 @@
   .right-side {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: rem(24px);
 
     .dropdown {
       position: relative;
@@ -42,7 +42,7 @@
         align-items: center;
         background: none;
         border: none;
-        gap: 8px;
+        gap: rem(8px);
         cursor: pointer;
         padding: 0;
       }
@@ -58,7 +58,19 @@
       .icon-power-off,
       .icon-lock {
         color: $primary;
+        font-size: $font-size-medium;
       }
+    }
+
+    > .dropdown:first-of-type > .dropdown-toggle .icon-user {
+      width: rem(32px);
+      height: rem(32px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $inverse-text;
+      border-radius: 50%;
+      line-height: 1;
     }
 
     .dropdown-burger {
@@ -74,14 +86,14 @@
   }
 
   @include mobile {
-    padding: 16px 24px;
+    padding: rem(16px) rem(24px);
 
     .left-side a {
       display: none;
     }
 
     .right-side {
-      gap: 12px;
+      gap: rem(12px);
 
       .dropdown {
         .button-text,

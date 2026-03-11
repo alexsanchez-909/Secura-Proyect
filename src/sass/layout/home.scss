@@ -2,23 +2,31 @@
 @use '../helpers/mixins' as *;
 
 .home{
-    background-color: $light;
+    background-color: $inverse-text;
 }
 
+.home-wrapper {
+    max-width: rem(1392px);
+    margin: 0 auto;
+}
 .home-section {
-    padding: 0 24px;
+    padding: 0 rem(24px);
+}
+
+.home-section:last-child {
+    padding-bottom: rem(80px);
 }
 
 .renovations-tittle{
     @include font-styles($font-family, bold, $font-size-medium, $gray-100);
-    margin-top: 40px;
+    margin-top: rem(40px);
     margin-left: 0;
-    margin-bottom: 24px;
+    margin-bottom: rem(40px);
 }
 
 .clients-tittle {
     @include font-styles($font-family, 500, $font-size-medium, $gray-100);
-    margin: 1.5rem 0;
+    margin: rem(40px) 0 rem(32px);
 }
 
 .renovations-desktop {
@@ -27,6 +35,6 @@
 
 @include mobile() {
     .home-section {
-        padding: 0 16px;
+        padding: 0 rem(16px);
     }
 }

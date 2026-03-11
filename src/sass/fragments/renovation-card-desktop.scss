@@ -2,17 +2,17 @@
 @use "../helpers/variables" as *;
 
 .home-renovations {
-  margin: 0 0 24px;
+  margin: 0 0 rem(24px);
 }
 
 .home-renovations__header {
-  min-height: 29px;
+  min-height: rem(29px);
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 24px;
-  padding: 0 24px 8px;
-  margin-bottom: 16px;
-  border-bottom: 1px solid $gray-25;
+  gap: rem(24px);
+  padding: 0 rem(24px) rem(8px);
+  margin-bottom: rem(16px);
+  border-bottom: rem(1px) solid $gray-25;
 
   h2 {
     margin: 0;
@@ -21,16 +21,20 @@
 }
 
 .home-renovations__card {
-  min-height: 76px;
+  min-height: rem(76px);
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 24px;
+  gap: rem(24px);
   align-items: center;
   background-color: #fff;
-  border-radius: 10px;
-  padding: 0 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 10px 15px rgba(55, 70, 73, 0.1);
+  border-radius: rem(10px);
+  padding: 0 rem(24px);
+  margin-bottom: rem(16px);
+  box-shadow: 0 rem(10px) rem(15px) rgba(55, 70, 73, 0.1);
+}
+
+.home-renovations__card:last-of-type {
+  margin-bottom: rem(32px);
 }
 
 .home-renovations__cell {
@@ -50,14 +54,14 @@
 .home-renovations__actions {
   display: flex;
   justify-content: flex-start;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .home-renovations__view-all {
-  height: 40px;
-  padding: 0 20px;
-  border: 1px solid $primary-25;
-  border-radius: 8px;
+  height: rem(40px);
+  padding: 0 rem(20px);
+  border: rem(1px) solid $primary-25;
+  border-radius: rem(8px);
   background-color: $primary-25;
   cursor: pointer;
   @include font-styles($font-family, 300, $font-size-small, $gray-100);
@@ -72,14 +76,14 @@
 .state__success,
 .state__rejected {
   width: fit-content;
-  padding: 2px 8px;
-  border-radius: 4px;
+  padding: rem(2px) rem(8px);
+  border-radius: rem(4px);
 }
 
 .state-policy {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: rem(8px);
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
 }
 
@@ -109,20 +113,20 @@
   }
 
   .home-renovations__card {
-    height: 368px;
+    height: rem(368px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 12px;
-    padding: 24px 16px;
+    gap: rem(12px);
+    padding: rem(24px) rem(16px);
   }
 
   .home-renovations__cell {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: rem(4px);
   }
 
   .home-renovations__cell::before {

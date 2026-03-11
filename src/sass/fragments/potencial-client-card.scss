@@ -4,90 +4,84 @@
 .client-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin: 0 0 80px;
+  gap: rem(20px);
+  margin: 0;
 }
 
 .client-card {
   width: 100%;
-  border-radius: 12px;
+  border-radius: rem(12px);
   overflow: hidden;
   background-color: $light;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 rem(2px) rem(8px) rgba(0, 0, 0, 0.2);
 }
 
 .client-card__top {
   position: relative;
-  padding: 20px 24px 0;
+  padding: rem(20px) rem(24px) 0;
 }
 
 .client-card__header {
   display: flex;
   flex-direction: column;
-  padding-right: 36px;
+  padding-right: rem(36px);
 }
 
 .client-card__name {
-  margin: 0 0 10px;
+  margin: 0 0 rem(10px);
   line-height: 1.25;
   overflow-wrap: anywhere;
   @include font-styles($font-family, 400, $font-size-medium, $gray-100);
 }
 
 .client-card__offer {
-  margin: 0 0 24px;
+  margin: 0 0 rem(24px);
   @include font-styles($font-family, 400, $font-size-small, $primary-75);
 }
 
 .client-card__icon {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: rem(16px);
+  right: rem(16px);
   border: none;
   background-color: transparent;
   color: $primary;
-  font-size: 20px;
+  font-size: rem(20px);
   cursor: pointer;
 }
 
 .client-card__contact {
-  padding: 0 24px 24px;
+  padding: 0 rem(24px) rem(24px);
   display: flex;
-  gap: 16px;
+  gap: rem(24px);
 }
 
 .client-card__mail,
 .client-card__phone {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: rem(4px);
   @include font-styles($font-family, 700, $font-size-small, $primary);
-}
-
-@include desktop() {
-  .client-list {
-    grid-template-columns: 1fr;
-  }
 }
 
 @include mobile() {
   .client-list {
-    margin: 0 0 40px;
+    margin: 0;
   }
 
   .client-card__top {
-    padding: 20px 16px 0;
+    padding: rem(20px) rem(16px) 0;
   }
 
   .client-card__contact {
-    padding: 8px 16px 24px;
+    padding: rem(8px) rem(16px) rem(24px);
     flex-direction: column;
-    gap: 12px;
+    gap: rem(12px);
   }
 
   .client-card__mail,
   .client-card__phone {
     display: flex;
-    gap: 6px;
+    gap: rem(6px);
   }
 }

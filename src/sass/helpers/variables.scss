@@ -1,3 +1,5 @@
+@use 'functions' as *;
+
 /* Base */
 $primary: #4B98D9;
 $primary-75:#6FA6D4;
@@ -26,11 +28,11 @@ $inverse-text: #F7F7FC;
 $font-family: 'Roboto', sans-serif;
 
 /* Size */
-$font-size-extralarge: 64px;
-$font-size-large: 40px;
-$font-size-medium: 24px;
-$font-size-small: 16px;
-$font-size-extrasmall: 10px;
+$font-size-extralarge: rem(64px);
+$font-size-large: rem(40px);
+$font-size-medium: rem(24px);
+$font-size-small: rem(16px);
+$font-size-extrasmall: rem(10px);
 
 
 /* Breakpoints */

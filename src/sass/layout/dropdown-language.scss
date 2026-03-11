@@ -4,15 +4,15 @@
 .dropdown-menu-language {
   position: absolute;
   top: 200%;
-  right: -10px;
+  right: -rem(10px);
   background-color: $light;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba($gray-100, 0.2);
-  width: 131px;
+  border-radius: rem(12px);
+  box-shadow: 0 rem(2px) rem(8px) rgba($gray-100, 0.2);
+  width: rem(131px);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
+  transform: translateY(-rem(10px));
   transition: all 0.2s ease;
   pointer-events: none;
 }
@@ -26,14 +26,14 @@
 
 .dropdown-menu-language .dropdown-item {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  padding: 18px 24px 18px 32px;
+  padding: rem(18px) rem(24px) rem(18px) rem(32px);
   cursor: pointer;
   transition: border-color 0.2s;
   display: block;
   width: 100%;
   box-sizing: border-box;
   background: none;
-  border-bottom: 1px solid $gray-10;
+  border-bottom: rem(1px) solid $gray-10;
   text-decoration: none;
   color: inherit;
 }
@@ -43,13 +43,13 @@
 }
 
 .dropdown-menu-language .dropdown-item:first-child:hover {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: rem(12px);
+  border-top-right-radius: rem(12px);
 }
 
 .dropdown-menu-language .dropdown-item:last-child:hover {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: rem(12px);
+  border-bottom-right-radius: rem(12px);
 }
 
 .dropdown-menu-language .dropdown-item:last-child {

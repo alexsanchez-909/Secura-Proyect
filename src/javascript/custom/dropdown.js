@@ -1,4 +1,5 @@
-// Inicializar todos los dropdowns
+// Inicializa toda la lógica de dropdowns del header:
+// perfil, idioma principal, burger e idioma dentro del burger.
 function initDropdowns() {
 
   const navbar = document.querySelector('.navbar');
@@ -7,6 +8,7 @@ function initDropdowns() {
   const burgerDropdown = document.querySelector('.dropdown.dropdown-burger');
   const burgerMenu = burgerDropdown?.querySelector('.dropdown-menu-burger');
   const burgerLanguageDropdown = burgerMenu?.querySelector('.dropdown-menu-burger__language-dropdown');
+  const burgerLanguageMenu = burgerLanguageDropdown?.querySelector('.dropdown-menu-language');
   const burgerIcon = burgerDropdown?.querySelector('.dropdown-toggle span');
   const profileDropdown = document.querySelector('.navbar .right-side > .dropdown:first-of-type');
   const profileMenu = profileDropdown?.querySelector('.dropdown-menu');
@@ -20,11 +22,13 @@ function initDropdowns() {
   }
   let isPageScrollLocked = false;
 
+  // Bloquea el scroll de rueda/táctil cuando la UI lo requiere (menús abiertos en móvil).
   const preventScrollWhileLocked = (event) => {
     if (!isPageScrollLocked) return;
     event.preventDefault();
   };
 
+  // Activa o desactiva el bloqueo de scroll sobre document/body.
   const setPageScrollLock = (shouldLock) => {
     isPageScrollLocked = shouldLock;
     const overflowValue = shouldLock ? 'hidden' : '';
@@ -32,11 +36,12 @@ function initDropdowns() {
     document.documentElement.style.overflow = overflowValue;
   };
 
+  // Devuelve el hijo directo de un elemento que tenga la clase indicada.
   const getDirectChildByClass = (element, className) => Array.from(element.children).find(
     (child) => child.classList && child.classList.contains(className),
   );
 
-  // Función para actualizar la selección de idioma en todos los dropdowns
+  // Sincroniza idioma seleccionado (texto y peso de opción) en todos los selectores de idioma.
   const setLanguageSelection = (language) => {
     languageDropdowns.forEach((dropdown) => {
       const languageMenu = getDirectChildByClass(dropdown, 'dropdown-menu-language');
@@ -55,16 +60,22 @@ function initDropdowns() {
     });
   };
 
-  // Actualiza iconos y clases del header en base al estado real de los dropdowns
+  // Recalcula y aplica estado visual de iconos/clases del header según menús abiertos/cerrados.
   const updateHeaderDropdownUI = () => {
     const isMobileView = mobileMq.matches;
     const isBurgerMenuOpen = burgerMenu?.classList.contains('active') ?? false;
     const isProfileMenuOpen = profileMenu?.classList.contains('active') ?? false;
+
+    // Si se cierra el menú burger, forzar el cierre del submenú de idioma.
+    if (!isBurgerMenuOpen && burgerLanguageMenu?.classList.contains('active')) {
+      burgerLanguageMenu.classList.remove('active');
+    }
+
     const isAnyDropdownOpen = Array.from(dropdowns).some((dropdown) => (
       Boolean(dropdown.querySelector('.dropdown-menu.active, .dropdown-menu-language.active, .dropdown-menu-burger.active'))
     ));
     const isBurgerLanguageMenuOpen = Boolean(
-      burgerMenu?.querySelector('.dropdown-menu-burger__language-dropdown > .dropdown-menu-language.active'),
+      burgerLanguageMenu?.classList.contains('active'),
     );
 
     const shouldShowProfileCloseIcon = isMobileView && isProfileMenuOpen;
@@ -92,7 +103,7 @@ function initDropdowns() {
     setPageScrollLock(isMobileView && isAnyDropdownOpen);
   };
 
-  // Función para cerrar todos los dropdowns excepto el especificado
+  // Cierra todos los menús desplegables excepto uno opcional que deba mantenerse abierto.
   const closeAllDropdowns = (exceptDropdown = null) => {
     dropdowns.forEach((dropdown) => {
       const shouldKeepOpen = exceptDropdown && (
@@ -109,13 +120,14 @@ function initDropdowns() {
     updateHeaderDropdownUI();
   };
 
-  // Configurar eventos para cada dropdown
+  // Registra comportamiento genérico de apertura/cierre para dropdowns estándar.
   dropdowns.forEach((dropdown) => {
     const toggleBtn = dropdown.querySelector('.dropdown-toggle');
     const menu = dropdown.querySelector('.dropdown-menu, .dropdown-menu-language, .dropdown-menu-burger');
 
     if (!toggleBtn || !menu) return;
 
+    // Handler de click en el botón del dropdown: abre/cierra y cierra el resto.
     toggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
 
@@ -129,6 +141,7 @@ function initDropdowns() {
       updateHeaderDropdownUI();
     });
 
+    // Handler de selección de ítems dentro del menú del dropdown.
     menu.addEventListener('click', (e) => {
       const selectedItem = e.target.closest('.dropdown-item');
       if (!selectedItem) return;
@@ -147,11 +160,13 @@ function initDropdowns() {
     });
   });
 
+  // Registra comportamiento del selector de idioma dentro del menú burger (estructura especial).
   if (burgerLanguageDropdown) {
     const languageToggleBtn = burgerLanguageDropdown.querySelector('.dropdown-toggle');
     const languageMenu = burgerLanguageDropdown.querySelector('.dropdown-menu-language');
 
     if (languageToggleBtn && languageMenu) {
+      // Handler del botón de idioma del burger: abre/cierra su submenú.
       languageToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
 
@@ -165,6 +180,7 @@ function initDropdowns() {
         updateHeaderDropdownUI();
       });
 
+      // Handler de selección de idioma dentro del submenú del burger.
       languageMenu.addEventListener('click', (e) => {
         const selectedItem = e.target.closest('.dropdown-item');
         if (!selectedItem) return;
@@ -180,19 +196,24 @@ function initDropdowns() {
     }
   }
 
+  // Cierre global al clicar fuera de cualquier dropdown.
   document.addEventListener('click', () => {
     closeAllDropdowns();
   });
+  // Bloqueo de scroll por rueda y táctil cuando hay menú móvil abierto.
   document.addEventListener('wheel', preventScrollWhileLocked, { passive: false });
   document.addEventListener('touchmove', preventScrollWhileLocked, { passive: false });
 
+  // Idioma inicial por defecto tomado del selector principal.
   const initialLanguage = (
     document.querySelector('.navbar .right-side > .dropdown:nth-of-type(2) .dropdown-toggle .button-text')?.textContent
     || 'Español'
   ).trim();
   setLanguageSelection(initialLanguage);
+  // Recalcula UI al cambiar entre móvil/desktop.
   mobileMq.addEventListener('change', updateHeaderDropdownUI);
   updateHeaderDropdownUI();
 }
 
+// Arranca la inicialización cuando el DOM está listo.
 document.addEventListener('DOMContentLoaded', initDropdowns);

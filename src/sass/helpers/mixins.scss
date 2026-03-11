@@ -1,11 +1,6 @@
 @use 'variables' as *;
-
-/* Convert px to rem 
-    - example of usage: @include toRem(font-size, 20px);
-*/
-@mixin toRem($property, $value, $base: 16px) {
-    #{$property}: #{$value / $base}rem;
-}
+@use 'functions' as *;
+@forward 'functions';
 
 /* MIXINS GENERALES */ 
 @mixin font-styles($font-family: 'Roboto', $font-weight, $font-size, $color){

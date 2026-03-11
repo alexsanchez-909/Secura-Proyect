@@ -1,3 +1,5 @@
+@use "../helpers/variables" as *;
+
 html,
 body,
 div,
@@ -72,8 +74,8 @@ time,
 mark,
 audio,
 video {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   border: none;
   font: inherit;
   vertical-align: baseline;

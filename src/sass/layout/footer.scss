@@ -4,6 +4,7 @@
 .footer {
   padding: 1rem 2rem;
   background-color: #fff;
+  //max-height: rem(204px);
 }
 
 .footer .icon-mail,
@@ -82,7 +83,7 @@
   }
 
   .site-footer__address {
-    margin: 16px 0;
+    margin: rem(16px) 0;
     justify-self: start;
     align-self: flex-start;
     text-align: left;
@@ -114,7 +115,8 @@
 @include mobile {
   .footer {
     padding: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: rem(10px);
+    max-height: none;
   }
 
   .site-footer__grid {
@@ -123,7 +125,7 @@
   }
 
   .site-footer__address {
-    margin: 45px 0;
+    margin: rem(45px) 0;
     justify-self: start;
     align-self: flex-start;
     text-align: left;
