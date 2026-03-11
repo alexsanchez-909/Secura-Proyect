@@ -5,12 +5,15 @@
   padding: 1rem 2rem;
   background-color: #fff;
   //max-height: rem(204px);
+
+  .icon-mail,
+  .icon-phone {
+    color: $primary;
+  }
+
 }
 
-.footer .icon-mail,
-.footer .icon-phone {
-  color: $primary;
-}
+
 
 .site-footer__grid {
   margin: 0 auto;
@@ -28,13 +31,15 @@
   margin-top: 0.75rem;
   text-decoration: none;
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
+
+  .icon-mail,
+  .icon-phone {
+    margin-right: 0.3125rem;
+    font-size: 1rem;
+  }
 }
 
-.site-footer__line .icon-mail,
-.site-footer__line .icon-phone {
-  margin-right: 0.3125rem;
-  font-size: 1rem;
-}
+
 
 .site-footer__address {
   margin-top: 1.40625rem;
@@ -83,7 +88,7 @@
   }
 
   .site-footer__address {
-    margin: rem(16px) 0;
+    margin: 16px 0;
     justify-self: start;
     align-self: flex-start;
     text-align: left;
@@ -115,7 +120,7 @@
 @include mobile {
   .footer {
     padding: 1rem;
-    margin-bottom: rem(10px);
+    margin-bottom: 10px;
     max-height: none;
   }
 
@@ -125,7 +130,7 @@
   }
 
   .site-footer__address {
-    margin: rem(45px) 0;
+    margin: 45px 0;
     justify-self: start;
     align-self: flex-start;
     text-align: left;

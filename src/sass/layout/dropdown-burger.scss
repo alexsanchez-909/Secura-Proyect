@@ -81,13 +81,12 @@
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-toggle {
     width: rem(129px);
     height: rem(40px);
-    display: flex;
+    display: grid;
+    grid-template-columns: rem(16px) 1fr rem(16px);
     align-items: center;
-    justify-content: flex-start;
-    gap: 0;
     border-radius: rem(12px);
     background: $light;
-    padding: 0;
+    padding: 0 rem(8px);
     box-sizing: border-box;
     cursor: pointer;
     color: $gray-100;
@@ -104,21 +103,22 @@
   }
 
   .dropdown-menu-burger__language-dropdown .icon-globe {
-    padding-left: rem(8px);
+    justify-self: start;
+    line-height: 1;
   }
 
   .dropdown-menu-burger__language-dropdown .icon-arrow-dropdown {
-    margin-left: auto;
-    padding-right: rem(8px);
+    justify-self: end;
+    line-height: 1;
   }
 
   .dropdown-menu-burger .dropdown-menu-burger__language-dropdown > .dropdown-toggle .button-text {
-    display: inline-block;
-    flex: 1;
+    display: block;
     min-width: 0;
-    text-align: left;
-    padding-left: rem(8px);
+    text-align: center;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .dropdown-menu-burger__language-dropdown > .dropdown-menu-language {

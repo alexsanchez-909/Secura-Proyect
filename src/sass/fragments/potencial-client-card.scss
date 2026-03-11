@@ -61,12 +61,20 @@
   display: inline-flex;
   align-items: center;
   gap: rem(4px);
+  min-width: 0;
+  flex-wrap: wrap;
   @include font-styles($font-family, 700, $font-size-small, $primary);
+}
+
+.client-card__mail span:last-child,
+.client-card__phone span:last-child {
+  overflow-wrap: anywhere;
 }
 
 @include mobile() {
   .client-list {
     margin: 0;
+    grid-template-columns: 1fr;
   }
 
   .client-card__top {

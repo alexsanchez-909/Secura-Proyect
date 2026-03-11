@@ -14,6 +14,7 @@
   transform: translateY(-10px);
   transition: all 0.2s ease;
   pointer-events: none;
+  border-radius: rem(16px);
 
   @include mobile() {
     position: fixed;
@@ -25,30 +26,34 @@
     height: calc(100vh - 80px);
     max-width: 100vw;
     max-height: calc(100vh - 80px);
-    border-radius: rem(0) rem(0) rem(16px) rem(16px);
     box-shadow: rem(0) rem(8px) rem(32px) rgba($gray-100, 0.15);
     border-top: rem(1px) solid $gray-25;
+    border-radius: 0;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-header {
+    padding: rem(24px) rem(24px);
+  }
+
+  .dropdown-header__tittle {
+    @include font-styles($font-family, bold, $font-size-small, $gray-100);
+    margin: 0 0 rem(22px);
+  }
+
+  .dropdown-header__description {
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    margin: 0;
   }
 }
 
-.dropdown-menu.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.dropdown-menu .dropdown-header h1 {
-  @include font-styles($font-family, bold, $font-size-small, $gray-100);
-  margin: rem(24px) rem(254px) rem(22px) rem(24px);
-}
-
-.dropdown-menu .dropdown-header p {
-  @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  margin: rem(0) rem(24px) rem(24px) rem(24px);
-}
-
-.dropdown-menu .dropdown-element {
+.dropdown-element {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
   padding: rem(18px) rem(24px) rem(18px) rem(32px);
   cursor: pointer;
@@ -59,45 +64,37 @@
   border-left: rem(3px) solid transparent;
   background: none;
   border-top: rem(2px) solid $gray-10;
-}
 
-.dropdown-menu .dropdown-element:hover {
-  border-left-color: $primary;
-  background: none;
-}
+  &:hover {
+    border-left-color: $primary;
+    background: none;
+  }
 
-.dropdown-menu .dropdown-element:last-child:hover {
-  border-bottom-left-radius: rem(16px);
+  &:last-child:hover {
+    border-bottom-left-radius: rem(16px);
+    @include mobile() {
+      border-bottom-right-radius: rem(16px);
+    }
+  }
 
-  @include mobile() {
-    border-bottom-right-radius: none;
+  a {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+  }
+
+  .icon-user,
+  .icon-lock,
+  .icon-phone,
+  .icon-power-off {
+    font-size: $font-size-medium;
   }
 }
 
-.dropdown-menu .dropdown-element a {
-  text-decoration: none;
-  color: inherit;
-  flex: 1;
-}
-
-.dropdown-menu .dropdown-element .icon-user,
-.dropdown-menu .dropdown-element .icon-lock,
-.dropdown-menu .dropdown-element .icon-phone,
-.dropdown-menu .dropdown-element .icon-power-off {
-  font-size: $font-size-medium;
-}
 
 
 
-@include mobile() {
 
-  .dropdown-menu .dropdown-header h3 {
-    @include font-styles($font-family, bold, $font-size-small, $gray-100);
-    margin: rem(24px) rem(234px) rem(22px) rem(24px);
-  }
 
-  .dropdown-menu .dropdown-header p {
-    @include font-styles($font-family, 400, $font-size-small, $gray-100);
-    margin: 0 rem(24px) rem(24px) rem(24px);
-  }
-}
+
+
