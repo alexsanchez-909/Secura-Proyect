@@ -1,34 +1,35 @@
-@use '../helpers/variables' as *;
+﻿@use '../helpers/variables' as *;
 @use '../helpers/mixins' as *;
 
 .dropdown-menu {
   position: absolute;
-  top: 200%;
+  top: 150%;
   right: 0;
   background-color: $light;
-  box-shadow: rem(0) rem(2px) rem(8px) rgba($gray-100, 0.2);
+  box-shadow: 0 rem(2px) rem(8px) rgba($gray-100, 0.2);
   width: rem(375px);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
+  transform: translateY(-rem(10px));
   transition: all 0.2s ease;
   pointer-events: none;
   border-radius: rem(16px);
+  
 
   @include mobile() {
     position: fixed;
     top: rem(78px);
     left: 0;
     right: 0;
-    width: 100vw;
+    width: 100%;
     background-color: $light;
-    height: calc(100vh - 80px);
-    max-width: 100vw;
-    max-height: calc(100vh - 80px);
+    height: calc(100vh - rem(80px));
+    max-width: 100%;
+    max-height: calc(100vh - rem(78px));
     box-shadow: rem(0) rem(8px) rem(32px) rgba($gray-100, 0.15);
     border-top: rem(1px) solid $gray-25;
-    border-radius: 0;
+    border-radius: 0px;
   }
 
   &.active {
@@ -51,43 +52,41 @@
     @include font-styles($font-family, 400, $font-size-small, $gray-100);
     margin: 0;
   }
-}
 
-.dropdown-element {
-  @include font-styles($font-family, 400, $font-size-small, $gray-100);
-  padding: rem(18px) rem(24px) rem(18px) rem(32px);
-  cursor: pointer;
-  transition: border-color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: rem(12px);
-  border-left: rem(3px) solid transparent;
-  background: none;
-  border-top: rem(2px) solid $gray-10;
-
-  &:hover {
-    border-left-color: $primary;
+  .dropdown-element {
+    @include font-styles($font-family, 400, $font-size-small, $gray-100);
+    padding: rem(18px) rem(24px) rem(18px) rem(32px);
+    cursor: pointer;
+    transition: border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: rem(12px);
+    border-left: rem(3px) solid transparent;
     background: none;
-  }
+    border-top: rem(2px) solid $gray-10;
 
-  &:last-child:hover {
-    border-bottom-left-radius: rem(16px);
-    @include mobile() {
+    &:hover {
+      border-left-color: $primary;
+      background: none;
+    }
+
+    &:last-child:hover {
+      border-bottom-left-radius: rem(16px);
       border-bottom-right-radius: rem(16px);
     }
-  }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-    flex: 1;
-  }
+    a {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+    }
 
-  .icon-user,
-  .icon-lock,
-  .icon-phone,
-  .icon-power-off {
-    font-size: $font-size-medium;
+    .icon-user,
+    .icon-lock,
+    .icon-phone,
+    .icon-power-off {
+      font-size: $font-size-medium;
+    }
   }
 }
 

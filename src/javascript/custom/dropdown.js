@@ -11,7 +11,7 @@ function initDropdowns() {
   const burgerLanguageMenu = burgerLanguageDropdown?.querySelector('.dropdown-menu-language');
   const burgerIcon = burgerDropdown?.querySelector('.dropdown-toggle span');
   const profileDropdown = document.querySelector('.navbar .right-side > .dropdown:first-of-type');
-  const profileMenu = profileDropdown?.querySelector('.dropdown-menu');
+  const profileMenu = profileDropdown?.querySelector('.dropdown-menu-profile, .dropdown-menu');
   const profileIcon = profileDropdown?.querySelector('.dropdown-toggle span');
   const mobileMq = window.matchMedia('(max-width: 30rem)');
   const languageDropdowns = document.querySelectorAll('.dropdown, .dropdown-menu-burger__language-dropdown');
@@ -98,6 +98,10 @@ function initDropdowns() {
     //Toggle para mostrar el fondo oscuro y scroll fijo cuando el menú burger de idiomas está abierto
     if (burgerMenu) {
       burgerMenu.classList.toggle('language-menu-open', shouldShowBurgerLanguageOpenClass);
+    }
+    // Marca visualmente si el selector de idioma del burger está abierto para animar la flecha.
+    if (burgerLanguageDropdown) {
+      burgerLanguageDropdown.classList.toggle('language-toggle-open', shouldShowBurgerLanguageOpenClass);
     }
 
     setPageScrollLock(isMobileView && isAnyDropdownOpen);

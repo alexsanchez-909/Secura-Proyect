@@ -15,6 +15,7 @@
   transform: translateY(-rem(10px));
   transition: all 0.2s ease;
   pointer-events: none;
+  text-decoration: none;
 }
 
 .dropdown-menu-language.active {
@@ -24,7 +25,7 @@
   pointer-events: auto;
 }
 
-.dropdown-menu-language .dropdown-item {
+.dropdown-item {
   @include font-styles($font-family, 400, $font-size-small, $gray-100);
   padding: rem(18px) rem(24px) rem(18px) rem(32px);
   cursor: pointer;
@@ -40,6 +41,7 @@
 
 .dropdown-menu-language .dropdown-item:hover {
   background: $primary-25;
+  text-decoration: none;
 }
 
 .dropdown-menu-language .dropdown-item:first-child:hover {

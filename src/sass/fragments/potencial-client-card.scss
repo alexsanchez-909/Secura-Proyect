@@ -36,6 +36,7 @@
 
 .client-card__offer {
   margin: 0 0 rem(24px);
+  white-space: nowrap;
   @include font-styles($font-family, 400, $font-size-small, $primary-75);
 }
 
