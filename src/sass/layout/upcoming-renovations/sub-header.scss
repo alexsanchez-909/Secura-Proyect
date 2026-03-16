@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as *;
-@use '../helpers/variables' as *;
-@use '../helpers/icons-variables' as *;
+﻿@use '../../helpers/mixins' as *;
+@use '../../helpers/variables' as *;
+@use '../../helpers/icons-variables' as *;
 
 .renovations__sub-header {
   padding: rem(32px) rem(88px);
@@ -92,3 +92,4 @@
 .renovations__page-info__files .renovation__page-info__files__text {
   @include font-styles($font-family, 400, $font-size-small, $gray-75);
 }
+

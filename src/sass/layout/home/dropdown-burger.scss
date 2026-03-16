@@ -1,5 +1,5 @@
-﻿@use '../helpers/variables' as *;
-@use '../helpers/mixins' as *;
+﻿@use '../../helpers/variables' as *;
+@use '../../helpers/mixins' as *;
 
 .dropdown-menu-burger {
   position: absolute;
@@ -153,4 +153,5 @@
     overflow-y: hidden;
   }
 }
+
 

@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: space-between;
   padding: rem(16px) rem(88px);
-  background-color: $light;
   width: 100%;
   box-sizing: border-box;
 
@@ -62,17 +61,6 @@
       }
     }
 
-    > .dropdown:first-of-type > .dropdown-toggle .icon-user {
-      width: rem(32px);
-      height: rem(32px);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: $inverse-text;
-      border-radius: 50%;
-      line-height: 1;
-    }
-
     .dropdown-burger {
       display: none;
     }
@@ -101,6 +89,17 @@
         .icon-globe {
           display: none;
         }
+      }
+
+      > .dropdown:first-of-type > .dropdown-toggle .icon-user {
+        width: rem(32px);
+        height: rem(32px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $inverse-text;
+        border-radius: 50%;
+        line-height: 1;
       }
 
       .dropdown-burger {

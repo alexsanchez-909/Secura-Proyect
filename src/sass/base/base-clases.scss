@@ -16,15 +16,15 @@
 @use "layout/header";
 @use "layout/navigation";
 @use "layout/footer";
-@use "layout/dropdown-profile";
-@use "layout/dropdown-language";
-@use "layout/dropdown-burger";
-@use "layout/homepage-banner";
-@use "layout/home";
-@use "layout/sub-header";
+@use "layout/home/dropdown-profile";
+@use "layout/home/dropdown-language";
+@use "layout/home/dropdown-burger";
+@use "layout/home/homepage-banner";
+@use "layout/home/home";
+@use "layout/upcoming-renovations/sub-header";
 
 /** FRAGMENTS **/
-@use "fragments/renovation-card-desktop";
+@use "fragments/renovation-card";
 @use "fragments/potencial-client-card";
 
 /** COMPONENTS **/
