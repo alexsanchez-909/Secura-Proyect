@@ -76,7 +76,7 @@
   @include mobile {
     padding: rem(16px) rem(24px);
 
-    .left-side a {
+    .left-side a:not(:first-child) {
       display: none;
     }
 

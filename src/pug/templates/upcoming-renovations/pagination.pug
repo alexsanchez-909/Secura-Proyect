@@ -1,29 +1,20 @@
-.pagination-top
-	.pagination__rows 
-		span.pagination__rows__rows-text Filas por página:
-		.pagination__rows__rows-select
-			select.pagination__rows__option 
-				option 1
-				option 2
-				option 3
-				option 4
-				option 5
-				option 6
-				option 7
-				option 8
-				option 9
-				option 10
-			span.icon-arrow-right.pagination__rows__option__icon
-.pagination-bottom
-	.pagination__page 
-		span.pagination__page__text-1 Página 
-		span.pagination__page__text-2 1 de 77
-	.pagination__page-option
-		button.pagination__page-option__skip-left
+.upcoming-renovations-pagination__top(data-renovations-pagination)
+	.upcoming-renovations-pagination__rows
+		span.upcoming-renovations-pagination__rows-label Filas por página:
+		.upcoming-renovations-pagination__rows-select-wrap
+			select.upcoming-renovations-pagination__rows-select(data-pagination-size)
+				option(selected) 10
+			span.icon-arrow-right.upcoming-renovations-pagination__rows-icon
+.upcoming-renovations-pagination__bottom
+	.upcoming-renovations-pagination__page
+		span.upcoming-renovations-pagination__page-label Página
+		span.upcoming-renovations-pagination__page-status(data-pagination-status) 1 de 10
+	.upcoming-renovations-pagination__actions
+		button.upcoming-renovations-pagination__button.upcoming-renovations-pagination__button--first(type="button" data-pagination-first aria-label="Ir a la primera página")
 			span.icon-skip-left
-		button.pagination__page-option__left
+		button.upcoming-renovations-pagination__button.upcoming-renovations-pagination__button--prev(type="button" data-pagination-prev aria-label="Ir a la página anterior")
 			span.icon-back
-		button.pagination__page-option__right
+		button.upcoming-renovations-pagination__button.upcoming-renovations-pagination__button--next(type="button" data-pagination-next aria-label="Ir a la página siguiente")
 			span.icon-arrow-right
-		button.pagination__page-option__skip-right
+		button.upcoming-renovations-pagination__button.upcoming-renovations-pagination__button--last(type="button" data-pagination-last aria-label="Ir a la última página")
 			span.icon-skip-right

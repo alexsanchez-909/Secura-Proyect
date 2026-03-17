@@ -1,206 +1,209 @@
-﻿@use '../../helpers/mixins' as *;
+@use '../../helpers/mixins' as *;
 @use '../../helpers/variables' as *;
 @use '../../helpers/icons-variables' as *;
 
-.renovations__header {
-	padding-top: rem(1px);
-	padding-bottom: rem(40px);
+.upcoming-renovations__header {
+  padding-top: rem(1px);
+  padding-bottom: rem(40px);
 
-	@include mobile {
-		display: flex;
-		flex-direction: column;
-		padding-bottom: rem(24px);
-		margin-top: rem(26px);
-	}
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: rem(24px);
+    margin-top: rem(26px);
+  }
 
-	.renovations-filter-top {
-		margin-top: rem(35px);
-		width: 100%;
-		display: flex;
-		align-items: center;
-		column-gap: rem(12px);
+  .upcoming-renovations-filters {
+    @include mobile {
+      display: contents;
+    }
+  }
 
-		@include mobile {
-			display: contents;
-		}
-	}
+  .upcoming-renovations-filters__top {
+    margin-top: rem(35px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: rem(12px);
 
-	.renovations-filter__all-filters {
-		padding: rem(10px) rem(16px);
-		border: 1px solid $primary-50;
-		background-color: $inverse-text;
-		border-radius: rem(8px);
-		display: inline-flex;
-		align-items: center;
-		cursor: pointer;
+    @include mobile {
+      display: contents;
+    }
+  }
 
-		@include mobile {
-			width: 100%;
-			margin-left: 0;
-			order: 3;
-			position: fixed;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 1000;
-			justify-content: center;
-			border-radius: 0;
-			border: none;
-			border-top: rem(1px) solid $primary-50;
-			background-color: $light;
-		}
-	}
+  .upcoming-renovations-filters__toggle {
+    padding: rem(10px) rem(16px);
+    border: 1px solid $primary-50;
+    background-color: $inverse-text;
+    border-radius: rem(8px);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
 
-	.renovations-filter__all-filters__icon {
-		font-size: rem(16px);
-		color: $primary;
-	}
+    @include mobile {
+      width: 100%;
+      margin-left: 0;
+      order: 3;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      justify-content: center;
+      border-radius: 0;
+      border: none;
+      border-top: rem(1px) solid $primary-50;
+      background-color: $light;
+    }
+  }
 
-	.renovations-filter__all-filters__text {
-		margin-left: rem(10px);
-		@include font-styles($font-weight: 400, $font-size: rem(16px), $color: $text);
+  .upcoming-renovations-filters__toggle-icon {
+    font-size: rem(16px);
+    color: $primary;
+  }
 
-		@include mobile {
-			@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
-		}
-	}
+  .upcoming-renovations-filters__toggle-text {
+    margin-left: rem(10px);
+    @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $text);
 
-	.renovations-filter__all-filters__text-number {
-		display: none;
+    @include mobile {
+      @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
+    }
+  }
 
-		@include mobile {
-			display: block;
-			justify-content: center;
-			align-items: center;
-			width: rem(26px);
-			height: rem(23px);
-			border-radius: rem(99px);
-			padding-top: rem(2px);
-			margin-left: rem(8px);
-			background-color: $primary;
-			@include font-styles($font-weight: 400, $font-size: rem(16px), $color: $light);
-		}
-	}
+  .upcoming-renovations-filters__toggle-count {
+    display: none;
 
+    @include mobile {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      width: rem(26px);
+      height: rem(23px);
+      border-radius: rem(99px);
+      padding-top: rem(2px);
+      margin-left: rem(8px);
+      background-color: $primary;
+      @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $light);
+    }
+  }
 
-	.renovations-filter__all-policies__text-results {
-		@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
-	}
+  .upcoming-renovations-filters__bottom {
+    margin-top: rem(24px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: rem(16px);
+    }
 
-	.renovations-filter-bottom {
-		margin-top: rem(24px);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+    @include mobile {
+      order: 1;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 
-		@include tablet {
-			flex-direction: column;
-			align-items: flex-start;
-			row-gap: rem(16px);
-		}
+  .upcoming-renovations-filters__summary {
+    display: flex;
+    align-items: center;
 
-		@include mobile {
-			order: 1;
-			flex-direction: column;
-			align-items: flex-start;
-		}
-	}
+    @include tablet {
+      margin-top: rem(16px);
+      order: 2;
+      flex-wrap: wrap;
+    }
 
-	.renovations-filter__list__order-by {
-		@include font-styles($font-weight: 400, $font-size: rem(16px), $color: $text);
-	}
+    @include mobile {
+      width: rem(300px);
+      margin-top: rem(14px);
+      order: 2;
+      flex-wrap: wrap;
+    }
+  }
 
-	.renovations-filter__all-policies {
-		display: flex;
-		align-items: center;
+  .upcoming-renovations-filters__summary-results,
+  .upcoming-renovations-filters__summary-filters {
+    margin-left: rem(5px);
+    margin-right: rem(16px);
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
+  }
 
-		@include tablet {
-			margin-top: rem(16px);
-			order: 2;
-			flex-wrap: wrap;
-		}
+  .upcoming-renovations-filters__summary-separator {
+    margin-right: rem(16px);
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $gray-25);
+  }
 
-		@include mobile {
-			width: rem(300px);
-			margin-top: rem(14px);
-			order: 2;
-			flex-wrap: wrap;
-		}
-	}
+  .upcoming-renovations-filters__clear {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $primary);
 
-	.renovations-filter__all-policies__text-results,
-	.renovations-filter__all-policies__text-filters {
-		margin-left: rem(5px);
-		margin-right: rem(16px);
-		@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
-	}
+    @include mobile {
+      margin-top: rem(16px);
+    }
+  }
 
-	.renovations-filter__all-policies .separation {
-		margin-right: rem(16px);
-		@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $gray-25);
-	}
+  .upcoming-renovations-filters__sort {
+    @include tablet {
+      order: 1;
+    }
 
-	.renovations-filter__all-policies__clear-filters {
-		border: none;
-		cursor: pointer;
-		background-color: transparent;
-		@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $primary);
+    @include mobile {
+      order: 1;
+    }
+  }
 
-		@include mobile {
-			margin-top: rem(16px);
+  .upcoming-renovations-filters__sort-label {
+    @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $text);
+  }
 
-		}
-	}
+  .upcoming-renovations-filters__sort-field {
+    width: fit-content;
+    height: rem(44px);
+    margin-left: rem(14px);
+    background-color: $pagination-button-background;
+    border: rem(1px) solid $gray-25;
+    border-radius: rem(4px);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-	.renovations-filter__list__type-filter {
-		width: fit-content;
-		height: rem(44px);
-		margin-left: rem(14px);
-		background-color: $pagination-button-background;
-		border: rem(1px) solid $primary-50;
-		border-radius: rem(4px);
-		display: inline-flex;
-		align-items: center;
-		position: relative;
-	}
+  .upcoming-renovations-filters__sort-select {
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
+    background-color: $pagination-button-background;
+    border: none;
+    border-radius: inherit;
+    padding: rem(12px) rem(23px) rem(12px) rem(12px);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
 
-	.renovations-filter__list__select {
-		@include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
-		background-color: $pagination-button-background;
-		border: none;
-		padding: rem(12px) rem(23px) rem(12px) rem(12px);
-		appearance: none;
-		cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
 
-		&:focus {
-			outline: none;
-		}
-	}
-
-	.renovations-filter__list__type-filter__icon {
-		position: absolute;
-		top: rem(23px);
-		left: rem(130px);
-		transform: translateY(-50%) rotate(90deg);
-		pointer-events: none;
-		font-size: rem(16px);
-		color: $primary;
-	}
-
-	.renovations-filter {
-		@include mobile {
-			display: contents;
-		}
-	}
-
-	.renovations-filter__list {
-		@include tablet {
-			order: 1;
-		}
-
-		@include mobile {
-			order: 1;
-		}
-	}
+  .upcoming-renovations-filters__sort-icon {
+    position: absolute;
+    top: rem(23px);
+    left: rem(130px);
+    transform: translateY(-50%) rotate(90deg);
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(20px);
+    height: rem(20px);
+    font-size: rem(20px);
+    line-height: 1;
+    color: $primary;
+  }
 }

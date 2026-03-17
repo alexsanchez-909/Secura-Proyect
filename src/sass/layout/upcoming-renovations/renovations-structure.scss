@@ -1,25 +1,18 @@
 @use '../../helpers/mixins' as *;
 @use '../../helpers/variables' as *;
 
-
-.renovations__container{
-    background-color: $light;
-    border-top: 1px solid $gray-25;
+.upcoming-renovations {
+  background-color: $light;
+  border-top: 1px solid $gray-25;
 }
 
-.renovations {
-    padding: 0 rem(24px) rem(80px);
-    max-width: rem(1440px);
-    margin-inline: auto;
+.upcoming-renovations__content {
+  padding: 0 rem(24px) rem(80px);
+  max-width: rem(1440px);
+  margin-inline: auto;
 
-    @include tablet {
-        width: 100%;
-        padding: rem(9px) rem(16px) rem(80px);
-    }
-}
-
-.renovations__list .home-renovations > .home-renovations__card:nth-child(n + 4) {
-    @include mobile {
-        display: none;
-    }
+  @include tablet {
+    width: 100%;
+    padding: rem(9px) rem(16px) rem(80px);
+  }
 }
