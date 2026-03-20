@@ -1,4 +1,33 @@
-﻿[
+// Convertir caracteres especiales en texto seguro para que el navegador no los interprete como HTML.
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Transformar un importe con formato visual en euros a un número utilizable para ordenar.
+function parsePolicyAmountToNumber(policyAmount) {
+  return Number(
+    String(policyAmount)
+      .replace(' €', '')
+      .replace(/\./g, '')
+      .replace(',', '.'),
+  );
+}
+
+// Convertir una fecha en formato dd/mm/yyyy a timestamp para comparar cronológicamente.
+function parsePolicyDateToTimestamp(policyDate) {
+  const [day, month, year] = String(policyDate).split('/').map(Number);
+  return new Date(year, month - 1, day).getTime();
+}
+
+
+
+
+const policiesData = [
     {
         "policyNumber":  "75840001",
         "riskName":  "Hyundai Ioniq",
@@ -6160,5 +6189,7 @@
         "status":  "Pagada"
     }
 ]
+
+
 
 
