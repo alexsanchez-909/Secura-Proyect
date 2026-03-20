@@ -1,0 +1,138 @@
+@use '../../helpers/mixins' as *;
+@use '../../helpers/variables' as *;
+@use '../../helpers/icons-variables' as *;
+
+.upcoming-renovations__pagination {
+  margin-top: rem(40px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: rem(40px);
+  }
+
+  .upcoming-renovations-pagination__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .upcoming-renovations-pagination__rows {
+    display: flex;
+    align-items: center;
+    margin-right: rem(32px);
+
+    @include tablet {
+      margin-right: rem(16px);
+    }
+  }
+
+  .upcoming-renovations-pagination__rows-label {
+    margin-right: rem(12px);
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
+  }
+
+  .upcoming-renovations-pagination__rows-select-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .upcoming-renovations-pagination__rows-icon {
+    position: absolute;
+    right: rem(15px);
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(24px);
+    height: rem(24px);
+    font-size: rem(24px);
+    line-height: 1;
+    color: $primary;
+    pointer-events: none;
+  }
+
+  .upcoming-renovations-pagination__rows-select {
+    width: rem(72px);
+    height: rem(48px);
+    padding-left: rem(12px);
+    border: 1px solid $primary-50;
+    appearance: none;
+    cursor: pointer;
+    padding-right: rem(32px);
+    background-color: $pagination-button-background;
+    border-radius: rem(4px);
+    @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $gray-100);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .upcoming-renovations-pagination__page {
+    margin-right: rem(32px);
+    @include font-styles($font-weight: 700, $font-size: rem(16px), $color: $text);
+
+    @include tablet {
+      margin-block: rem(40px);
+    }
+  }
+
+  .upcoming-renovations-pagination__page-label {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .upcoming-renovations-pagination__actions {
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      margin-right: rem(8px);
+    }
+  }
+
+  .upcoming-renovations-pagination__actions .icon-skip-left,
+  .upcoming-renovations-pagination__actions .icon-back,
+  .upcoming-renovations-pagination__actions .icon-arrow-right,
+  .upcoming-renovations-pagination__actions .icon-skip-right {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(24px);
+    height: rem(24px);
+    font-size: rem(24px);
+    line-height: 1;
+  }
+
+  .upcoming-renovations-pagination__button {
+    border: none;
+    width: rem(48px);
+    height: rem(48px);
+    margin-right: rem(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $pagination-button-background;
+    border-radius: rem(8px);
+    transition: color 0.2s ease, box-shadow 0.2s ease;
+
+    &:disabled {
+      color: $pagination-button-icon-disabled;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    &:not(:disabled) {
+      color: $primary;
+      cursor: pointer;
+      box-shadow: 0 rem(6px) rem(16px) rgba(53, 53, 53, 0.12);
+    }
+  }
+}

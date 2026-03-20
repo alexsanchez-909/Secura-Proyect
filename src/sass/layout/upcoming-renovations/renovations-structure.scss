@@ -1,0 +1,18 @@
+@use '../../helpers/mixins' as *;
+@use '../../helpers/variables' as *;
+
+.upcoming-renovations {
+  background-color: $light;
+  border-top: 1px solid $gray-25;
+}
+
+.upcoming-renovations__content {
+  padding: 0 rem(24px) rem(80px);
+  max-width: rem(1440px);
+  margin-inline: auto;
+
+  @include tablet {
+    width: 100%;
+    padding: rem(9px) rem(16px) rem(80px);
+  }
+}

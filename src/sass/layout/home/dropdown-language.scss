@@ -1,5 +1,5 @@
-@use '../helpers/variables' as *;
-@use '../helpers/mixins' as *;
+﻿@use '../../helpers/variables' as *;
+@use '../../helpers/mixins' as *;
 
 .dropdown-menu-language {
   position: absolute;
@@ -57,3 +57,4 @@
 .dropdown-menu-language .dropdown-item:last-child {
   border-bottom: none;
 }
+

@@ -1,5 +1,5 @@
-@use  '../helpers/variables' as *;
-@use '../helpers/mixins' as *;
+﻿@use '../../helpers/variables' as *;
+@use '../../helpers/mixins' as *;
 
 .home{
     background-color: $inverse-text;
@@ -40,5 +40,6 @@
 .renovations-desktop {
     display: block;
 }
+
 
 
