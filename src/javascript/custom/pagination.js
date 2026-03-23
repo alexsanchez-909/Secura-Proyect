@@ -8,6 +8,9 @@ function initUpcomingRenovationsPagination() {
   const prevButton = document.querySelector('[data-pagination-prev]');
   const nextButton = document.querySelector('[data-pagination-next]');
   const lastButton = document.querySelector('[data-pagination-last]');
+  const filtersPanel = document.querySelector('[data-filters-panel]');
+  const openFiltersPanelButton = document.querySelector('[data-filters-panel-open]');
+  const closeFiltersPanelButton = document.querySelector('[data-filters-panel-close]');
 
   if ( !renovationsRoot || !listContainer || !pageSizeSelect || !sortSelect || !paginationStatus || !firstButton || !prevButton || !nextButton || !lastButton ) {
     return;
@@ -57,6 +60,20 @@ function initUpcomingRenovationsPagination() {
     nextButton,
     lastButton,
   };
+
+  // Mostrar el panel lateral de filtros cuando el usuario pulsa el botón de filtros.
+  function handleOpenFiltersPanelClick() {
+    if (!filtersPanel) return;
+    filtersPanel.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Ocultar el panel lateral de filtros y restaurar el scroll de la página.
+  function handleCloseFiltersPanelClick() {
+    if (!filtersPanel) return;
+    filtersPanel.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
 
   // Actualizar la disponibilidad visual y funcional de los botones según la página y el total disponible.
   function updatePaginationButtonsAvailability(controls, currentPage, totalPages) {
@@ -201,6 +218,14 @@ function initUpcomingRenovationsPagination() {
   prevButton.addEventListener('click', handleGoToPreviousPageClick);
   nextButton.addEventListener('click', handleGoToNextPageClick);
   lastButton.addEventListener('click', handleGoToLastPageClick);
+
+  if (openFiltersPanelButton) {
+    openFiltersPanelButton.addEventListener('click', handleOpenFiltersPanelClick);
+  }
+
+  if (closeFiltersPanelButton) {
+    closeFiltersPanelButton.addEventListener('click', handleCloseFiltersPanelClick);
+  }
 
   renderUpcomingRenovationsPage(policiesData, paginationState, paginationControls);
 }
