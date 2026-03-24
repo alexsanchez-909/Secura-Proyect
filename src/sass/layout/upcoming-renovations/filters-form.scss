@@ -7,9 +7,14 @@
     top: 0;
     left: 0;
     z-index: 9999;
+    display: flex;
+    flex-direction: column;
     width: rem(496px);
-    height: 100%;
-    background-color: $light;
+    max-width: 100%;
+    height: 100dvh;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: $pagination-button-background;
     box-shadow: 0 0 0 100vmax rgba(53, 53, 53, 0.24);
     transform: translateX(-100%);
     visibility: hidden;
@@ -24,17 +29,24 @@
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 100%;
+        height: 100dvh;
+        max-width: 100%;
     }
 }
 
 .renovations-filter-panel__header {
     max-height: rem(72px);
+    flex-shrink: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: rem(24px) rem(40px);
     border-bottom: rem(1px) solid $gray-25;
+    background-color: $pagination-button-background;
+
+    @include mobile {
+        padding-inline: rem(24px);
+    }
 }
 
 .renovations-filter-panel__title {
@@ -51,7 +63,14 @@
 }
 
 .renovations-filter-panel__content {
-    padding: rem(32px) rem(40px) rem(415px) rem(40px);
+    flex: 1 1 auto;
+    padding: rem(32px) rem(40px);
+    background-color: $pagination-button-background;
+    overflow: hidden;
+
+    @include mobile {
+        padding: rem(24px);
+    }
 }
 
 .renovations-filter-panel__form {
@@ -101,26 +120,45 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: stretch;
+        gap: rem(12px);
+    }
 }
 
 .renovations-filter-panel__input--date {
     width: rem(177px);
     padding-right: rem(36px);
+
+    @include mobile {
+        width: 100%;
+    }
 }
 
 .renovations-filter-panel__date-separator {
     @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $gray-75);
+
+    @include mobile {
+        text-align: center;
+    }
 }
 
 .renovations-filter-panel__select-icon {
     color: $primary;
     font-size: rem(20px);
     position: absolute;
-    top: 58%;
+    top: 50%;
     right: rem(12px);
+    transform: translateY(-50%) rotate(90deg);
     pointer-events: none;
-    margin-top: rem(5px);
-    padding-right: rem(5px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(20px);
+    height: rem(20px);
+    line-height: 1;
 }
 
 .renovations-filter-panel__calendar-icon {
@@ -134,16 +172,19 @@
 }
 
 .renovations-filter-panel__actions {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     padding: rem(20px) rem(40px);
     border-top: 1px solid $gray-25;
-    background: $light;
+    background: $pagination-button-background;
     z-index: 10000;
+
+    @include mobile {
+        gap: rem(12px);
+        padding: rem(16px) rem(24px);
+    }
 }
 
 .renovations-filter-panel__button {
@@ -151,6 +192,10 @@
     border-radius: rem(8px);
     @include font-styles($font-weight: 400, $font-size: rem(16px), $color: $text);
     cursor: pointer;
+
+    @include mobile {
+        flex: 1 1 0;
+    }
 }
 
 .renovations-filter-panel__button--ghost {

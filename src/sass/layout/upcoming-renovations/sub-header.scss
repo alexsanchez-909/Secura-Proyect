@@ -5,6 +5,7 @@
 .upcoming-renovations-subheader {
   padding: rem(32px) rem(88px);
   border-top: rem(1px) solid $gray-25;
+  font-family: $font-family;
 
   @include tablet {
     padding: rem(24px) rem(109px) rem(30px) rem(16px);
