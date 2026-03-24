@@ -4,6 +4,14 @@
 .upcoming-renovations {
   background-color: $light;
   border-top: 1px solid $gray-25;
+  font-family: $font-family;
+}
+
+.upcoming-renovations button,
+.upcoming-renovations input,
+.upcoming-renovations select,
+.upcoming-renovations textarea {
+  font-family: inherit;
 }
 
 .upcoming-renovations__content {
