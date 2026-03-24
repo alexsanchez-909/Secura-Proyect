@@ -61,18 +61,27 @@ function initUpcomingRenovationsPagination() {
     lastButton,
   };
 
+  function isFiltersPanelOpen() {
+    return filtersPanel?.classList.contains('is-open') ?? false;
+  }
+
+  function closeFiltersPanel() {
+    if (!filtersPanel) return;
+    filtersPanel.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
   // Mostrar el panel lateral de filtros cuando el usuario pulsa el botón de filtros.
   function handleOpenFiltersPanelClick() {
     if (!filtersPanel) return;
+    document.dispatchEvent(new CustomEvent('header-dropdowns:close'));
     filtersPanel.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
 
   // Ocultar el panel lateral de filtros y restaurar el scroll de la página.
   function handleCloseFiltersPanelClick() {
-    if (!filtersPanel) return;
-    filtersPanel.classList.remove('is-open');
-    document.body.style.overflow = '';
+    closeFiltersPanel();
   }
 
   // Actualizar la disponibilidad visual y funcional de los botones según la página y el total disponible.
@@ -226,6 +235,18 @@ function initUpcomingRenovationsPagination() {
   if (closeFiltersPanelButton) {
     closeFiltersPanelButton.addEventListener('click', handleCloseFiltersPanelClick);
   }
+
+  document.addEventListener('click', (event) => {
+    if (!isFiltersPanelOpen()) return;
+
+    const clickTarget = event.target;
+    const clickedInsidePanel = filtersPanel?.contains(clickTarget) ?? false;
+    const clickedOpenButton = openFiltersPanelButton?.contains(clickTarget) ?? false;
+
+    if (!clickedInsidePanel && !clickedOpenButton) {
+      closeFiltersPanel();
+    }
+  });
 
   renderUpcomingRenovationsPage(policiesData, paginationState, paginationControls);
 }

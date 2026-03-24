@@ -13,6 +13,7 @@ function initDropdowns() {
   const profileDropdown = document.querySelector('.navbar .right-side > .dropdown:first-of-type');
   const profileMenu = profileDropdown?.querySelector('.dropdown-menu-profile, .dropdown-menu');
   const profileIcon = profileDropdown?.querySelector('.dropdown-toggle span');
+  const filtersPanel = document.querySelector('[data-filters-panel]');
   const mobileMq = window.matchMedia('(max-width: 30rem)');
   const languageDropdowns = document.querySelectorAll('.dropdown, .dropdown-menu-burger__language-dropdown');
 
@@ -40,6 +41,8 @@ function initDropdowns() {
   const getDirectChildByClass = (element, className) => Array.from(element.children).find(
     (child) => child.classList && child.classList.contains(className),
   );
+
+  const isFiltersPanelOpen = () => filtersPanel?.classList.contains('is-open') ?? false;
 
   // Sincroniza idioma seleccionado (texto y peso de opción) en todos los selectores de idioma.
   const setLanguageSelection = (language) => {
@@ -133,6 +136,12 @@ function initDropdowns() {
 
     // Handler de click en el botón del dropdown: abre/cierra y cierra el resto.
     toggleBtn.addEventListener('click', (e) => {
+      if (isFiltersPanelOpen()) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
       e.stopPropagation();
 
       const isOpen = menu.classList.contains('active');
@@ -172,6 +181,12 @@ function initDropdowns() {
     if (languageToggleBtn && languageMenu) {
       // Handler del botón de idioma del burger: abre/cierra su submenú.
       languageToggleBtn.addEventListener('click', (e) => {
+        if (isFiltersPanelOpen()) {
+          e.preventDefault();
+          e.stopPropagation();
+          return;
+        }
+
         e.stopPropagation();
 
         const isOpen = languageMenu.classList.contains('active');
@@ -202,6 +217,9 @@ function initDropdowns() {
 
   // Cierre global al clicar fuera de cualquier dropdown.
   document.addEventListener('click', () => {
+    closeAllDropdowns();
+  });
+  document.addEventListener('header-dropdowns:close', () => {
     closeAllDropdowns();
   });
   // Bloqueo de scroll por rueda y táctil cuando hay menú móvil abierto.
