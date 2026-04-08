@@ -3,13 +3,14 @@
 		button.upcoming-renovations-filters__toggle(type="button" data-filters-panel-open)
 			span.icon-filter.upcoming-renovations-filters__toggle-icon
 			span.upcoming-renovations-filters__toggle-text Filtros
-			span.upcoming-renovations-filters__toggle-count 3
+			span.upcoming-renovations-filters__toggle-count(data-filters-toggle-count) 0
+		.upcoming-renovations-filters__chips(data-filters-chips)
 	.upcoming-renovations-filters__bottom
 		.upcoming-renovations-filters__summary
-			span.upcoming-renovations-filters__summary-results 770 pólizas
-			span.upcoming-renovations-filters__summary-separator |
-			span.upcoming-renovations-filters__summary-filters 7 filtros aplicados
-			button.upcoming-renovations-filters__clear Borrar filtros
+			span.upcoming-renovations-filters__summary-results(data-filters-results-count) 770 pólizas
+			span.upcoming-renovations-filters__summary-separator(data-filters-summary-separator) |
+			span.upcoming-renovations-filters__summary-filters(data-filters-applied-count) 0 filtros aplicados
+			button.upcoming-renovations-filters__clear(type="button" data-filters-clear) Borrar filtros
 		.upcoming-renovations-filters__sort
 			span.upcoming-renovations-filters__sort-label Ordenar por :
 			.upcoming-renovations-filters__sort-field

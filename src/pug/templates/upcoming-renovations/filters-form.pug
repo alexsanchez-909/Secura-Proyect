@@ -8,18 +8,21 @@
             .renovations-filter-panel__group
                 label.renovations-filter-panel__label(for="filter-policy-number") No. de póliza
                 .renovations-filter-panel__select-wrap
-                    select#filter-policy-number.renovations-filter-panel__select
-                        option Todas las pólizas
-                        option Opción 2
-                        option Opción 3
-                        option Opción 4
-                    span.icon-arrow-right.renovations-filter-panel__select-icon
+                    input#filter-policy-number.renovations-filter-panel__input(
+                        type="text"
+                        list="filter-policy-number-options"
+                        placeholder="Escribe o selecciona una póliza"
+                        autocomplete="off"
+                        data-filter-policy-number
+                    )
+                    datalist#filter-policy-number-options(data-filter-policy-number-options)
 
             .renovations-filter-panel__group
                 label.renovations-filter-panel__label(for="filter-risk-name") Nombre del riesgo
                 input#filter-risk-name.renovations-filter-panel__input(
                     type="text"
                     placeholder="Introduce el nombre del riesgo"
+                    data-filter-risk-name
                 )
 
             .renovations-filter-panel__group
@@ -29,6 +32,7 @@
                         input#filter-start-date.renovations-filter-panel__input.renovations-filter-panel__input--date(
                             type="text"
                             placeholder="Fecha inicio"
+                            data-filter-start-date
                         )
                         span.icon-calendar.renovations-filter-panel__calendar-icon
                     span.renovations-filter-panel__date-separator al
@@ -36,26 +40,55 @@
                         input#filter-end-date.renovations-filter-panel__input.renovations-filter-panel__input--date(
                             type="text"
                             placeholder="Fecha fin"
+                            data-filter-end-date
                         )
                         span.icon-calendar.renovations-filter-panel__calendar-icon
 
             .renovations-filter-panel__group
-                label.renovations-filter-panel__label(for="filter-amount") Importe
-                input#filter-amount.renovations-filter-panel__input(
-                    type="number"
-                    placeholder="Introduzca importe"
-                )
+                span.renovations-filter-panel__label Importe
+                .renovations-filter-panel__amount-filter
+                    .renovations-filter-panel__amount-inputs
+                        .renovations-filter-panel__amount-field
+                            label.renovations-filter-panel__amount-caption(for="filter-amount-min") Importe mínimo
+                            input#filter-amount-min.renovations-filter-panel__input(
+                                type="number"
+                                inputmode="numeric"
+                                placeholder="Mínimo"
+                                data-filter-amount-min
+                            )
+                        .renovations-filter-panel__amount-field
+                            label.renovations-filter-panel__amount-caption(for="filter-amount-max") Importe máximo
+                            input#filter-amount-max.renovations-filter-panel__input(
+                                type="number"
+                                inputmode="numeric"
+                                placeholder="Máximo"
+                                data-filter-amount-max
+                            )
+                    .renovations-filter-panel__range(data-amount-range)
+                        .renovations-filter-panel__range-track
+                            .renovations-filter-panel__range-progress(data-amount-range-progress)
+                        input.renovations-filter-panel__range-input(
+                            type="range"
+                            value="0"
+                            step="1"
+                            data-filter-amount-min-range
+                            aria-label="Importe mínimo"
+                        )
+                        input.renovations-filter-panel__range-input(
+                            type="range"
+                            value="0"
+                            step="1"
+                            data-filter-amount-max-range
+                            aria-label="Importe máximo"
+                        )
 
             .renovations-filter-panel__group
                 label.renovations-filter-panel__label(for="filter-status") Estado
                 .renovations-filter-panel__select-wrap
-                    select#filter-status.renovations-filter-panel__select
+                    select#filter-status.renovations-filter-panel__select(data-filter-status)
                         option Todos los estados
-                        option Opción 2
-                        option Opción 3
-                        option Opción 4
                     span.icon-arrow-right.renovations-filter-panel__select-icon
 
     .renovations-filter-panel__actions
-        button.renovations-filter-panel__button.renovations-filter-panel__button--ghost(type="button") Borrar filtros
-        button.renovations-filter-panel__button.renovations-filter-panel__button--primary(type="submit" form="renovations-filter-panel-form") Aplicar filtros
+        button.renovations-filter-panel__button.renovations-filter-panel__button--ghost(type="button" data-filters-clear-panel) Borrar filtros
+        button.renovations-filter-panel__button.renovations-filter-panel__button--primary(type="submit" form="renovations-filter-panel-form" data-filters-apply) Aplicar filtros
